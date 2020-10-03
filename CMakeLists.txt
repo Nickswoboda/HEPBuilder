@@ -37,6 +37,8 @@ if(ANDROID)
     src/exercise.cpp
     src/exercise_layout.cpp
     src/exercise_layout.h
+    src/tooltip.h
+    src/tooltip.cpp
     )
 else()
   add_executable(HEPBuilder
@@ -48,6 +50,8 @@ else()
     src/exercise.h
     src/exercise_layout.cpp
     src/exercise_layout.h
+    src/tooltip.h
+    src/tooltip.cpp
     )
 
 endif()

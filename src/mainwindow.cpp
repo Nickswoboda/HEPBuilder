@@ -4,6 +4,8 @@
 #include "exercise.h"
 #include "exercise_layout.h"
 
+#include "tooltip.h"
+
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -17,6 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
         Exercise* ex = new Exercise("Howdy", "/dev/HEPBuilder/assets/Squat.jpg", "do this", {}, this);
         exercise_layout_->AddExercise(ex);
     }
+
 }
 
 MainWindow::~MainWindow()
