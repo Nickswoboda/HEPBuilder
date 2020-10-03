@@ -12,9 +12,9 @@ public:
     void AddExercise(QWidget* exercise);
 private:
     QGridLayout* grid_;
-    const int max_cols_ = 7;
-    int curr_row_ = 0;
-    int curr_col_ = 0;
+    const int max_cols_ = 8;
+    int curr_row_ = 1;
+    int curr_col_ = 1;
 signals:
 
 };

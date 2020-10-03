@@ -17,10 +17,10 @@
    <widget class="QScrollArea" name="exercise_area">
     <property name="geometry">
      <rect>
-      <x>210</x>
-      <y>60</y>
-      <width>531</width>
-      <height>431</height>
+      <x>160</x>
+      <y>0</y>
+      <width>1121</width>
+      <height>541</height>
      </rect>
     </property>
     <property name="verticalScrollBarPolicy">
@@ -37,8 +37,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>512</width>
-       <height>429</height>
+       <width>1102</width>
+       <height>539</height>
       </rect>
      </property>
     </widget>
