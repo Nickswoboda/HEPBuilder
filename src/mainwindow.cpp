@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->exercise_area->setWidget(exercise_layout_);
 
     for (int i = 0; i < 32; ++i){
-        Exercise* ex = new Exercise("Howdy", "/dev/HEPBuilder/assets/Squat.jpg", "do this", {}, this);
+        Exercise* ex = new Exercise("Howdy" + QString::number(i), "/dev/HEPBuilder/assets/Squat.jpg", "do this", {}, this);
         connect(ex, SIGNAL(Entered()), this, SLOT(OnExerciseEntered()));
         connect(ex, SIGNAL(Exited()), this, SLOT(OnExerciseExited()));
         exercise_layout_->AddExercise(ex);
@@ -29,5 +29,14 @@ MainWindow::MainWindow(QWidget *parent)
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::OnExerciseEntered()
+{
+   Exercise* ex = dynamic_cast<Exercise*>(sender());
+   if (ex){
+       tooltip_->SetLabels(ex->name_, ex->instruction_);
+   }
+   tooltip_->show();
 }
 

@@ -24,3 +24,9 @@ Tooltip::Tooltip(QWidget *parent) : QWidget(parent)
     layout->addWidget(name_label_);
 	layout->addWidget(instruction_label_);
 }
+
+void Tooltip::SetLabels(const QString& name, const QString& instruction)
+{
+   name_label_->setText(name);
+   instruction_label_->setText(instruction);
+}

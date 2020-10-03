@@ -18,7 +18,7 @@ public:
     ~MainWindow();
 
 private slots:
-    void OnExerciseEntered() {tooltip_->show();}
+    void OnExerciseEntered();
     void OnExerciseExited() {tooltip_->hide();}
 
 private:
