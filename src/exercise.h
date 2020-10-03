@@ -21,10 +21,7 @@ public:
     QString instruction_;
     std::vector<QString> tags_;
 
-    Tooltip* tooltip_;
-
-
-
 signals:
     void Entered();
+    void Exited();
 };

@@ -17,9 +17,13 @@ MainWindow::MainWindow(QWidget *parent)
 
     for (int i = 0; i < 32; ++i){
         Exercise* ex = new Exercise("Howdy", "/dev/HEPBuilder/assets/Squat.jpg", "do this", {}, this);
+        connect(ex, SIGNAL(Entered()), this, SLOT(OnExerciseEntered()));
+        connect(ex, SIGNAL(Exited()), this, SLOT(OnExerciseExited()));
         exercise_layout_->AddExercise(ex);
     }
 
+    tooltip_ = new Tooltip(this);
+    tooltip_->hide();
 }
 
 MainWindow::~MainWindow()

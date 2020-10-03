@@ -13,17 +13,14 @@ Exercise::Exercise(const QString& name, const QString& img_path, const QString& 
     setFixedSize(130, 130);
     setScaledContents(true);
     setPixmap(img);
-
-    tooltip_ = new Tooltip(this);
-    tooltip_->hide();
 }
 
 void Exercise::enterEvent(QEvent *event)
 {
-    tooltip_->show();
+    emit Entered();
 }
 
 void Exercise::leaveEvent(QEvent *event)
 {
-    tooltip_->hide();
+    emit Exited();
 }
