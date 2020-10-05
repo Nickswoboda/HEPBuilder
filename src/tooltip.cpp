@@ -20,9 +20,13 @@ Tooltip::Tooltip(QWidget *parent) : QWidget(parent)
 
     instruction_label_ = new QLabel("Instruction");
     instruction_label_->setWordWrap(true);
+    instruction_label_->setStyleSheet("border-bottom: 0px");
+
 
     layout->addWidget(name_label_);
 	layout->addWidget(instruction_label_);
+
+    setGeometry(0, 0, 165, 160);
 }
 
 void Tooltip::SetLabels(const QString& name, const QString& instruction)

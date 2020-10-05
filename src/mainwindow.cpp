@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->exercise_area->setWidget(exercise_layout_);
 
     for (int i = 0; i < 32; ++i){
-        Exercise* ex = new Exercise("Howdy" + QString::number(i), "/dev/HEPBuilder/assets/Squat.jpg", "do this", {}, this);
+        Exercise* ex = new Exercise("Howdy" + QString::number(i), "/dev/HEPBuilder/assets/Squat.jpg", "dodasda thisasdhjisadhiasdihsadhias\n\nsdidsaidja\n/nsdsa", {}, this);
         connect(ex, SIGNAL(Entered()), this, SLOT(OnExerciseEntered()));
         connect(ex, SIGNAL(Exited()), this, SLOT(OnExerciseExited()));
         exercise_layout_->AddExercise(ex);
@@ -34,9 +34,27 @@ MainWindow::~MainWindow()
 void MainWindow::OnExerciseEntered()
 {
    Exercise* ex = dynamic_cast<Exercise*>(sender());
-   if (ex){
-       tooltip_->SetLabels(ex->name_, ex->instruction_);
+   if (!ex) return;
+
+   QPoint mouse_pos = mapFromGlobal(QCursor::pos());
+   QPoint mouse_pos_on_ex = ex->mapFromGlobal(QCursor::pos());
+
+   //make sure tooltip is placed below the exercise that is being hovered
+   mouse_pos.rx() -= mouse_pos_on_ex.x();
+   mouse_pos.ry() += ex->geometry().height() - mouse_pos_on_ex.y();
+
+   //make sure tooltip is placed completely within the main window
+   if (mouse_pos.x() + tooltip_->geometry().width() > geometry().width()){
+       mouse_pos.rx() = geometry().width() - tooltip_->geometry().width();
    }
+   if (mouse_pos.y() + tooltip_->geometry().height() > geometry().height()){
+       mouse_pos.ry() = geometry().height() - tooltip_->geometry().height();
+   }
+   tooltip_->move(mouse_pos.x(), mouse_pos.y());
+
+   tooltip_->SetLabels(ex->name_, ex->instruction_);
    tooltip_->show();
+
+
 }
 
