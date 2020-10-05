@@ -2,6 +2,7 @@
 
 #include <QLabel>
 #include <QJsonObject>
+#include <QPushButton>
 
 #include <string>
 
@@ -22,6 +23,8 @@ public:
     QString img_path_;
     QString instruction_;
     std::vector<QString> tags_;
+
+    QPushButton* add_button_;
 
 signals:
     void Entered();

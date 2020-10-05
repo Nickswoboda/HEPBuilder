@@ -14,6 +14,9 @@ Exercise::Exercise(const QString& name, const QString& img_path, const QString& 
     setFixedSize(130, 130);
     setScaledContents(true);
     setPixmap(img);
+
+    add_button_ = new QPushButton(this);
+
 }
 
 Exercise::Exercise(const QJsonObject& exercise, QWidget* parent)

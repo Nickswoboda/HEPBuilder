@@ -8,8 +8,9 @@ ExerciseLayout::ExerciseLayout(QWidget* parent)
     setLayout(grid_);
 }
 
-void ExerciseLayout::AddExercise(QWidget *exercise){
-    grid_->addWidget(exercise, curr_row_, curr_col_);
+void ExerciseLayout::AddExercise(Exercise& exercise){
+    grid_->addWidget(&exercise, curr_row_, curr_col_);
+    exercise.add_button_->setText("+");
 
     if (curr_col_ == max_cols_){
        ++curr_row_;

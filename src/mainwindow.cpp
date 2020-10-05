@@ -19,6 +19,10 @@ MainWindow::MainWindow(QWidget *parent)
     ui->exercise_area->setWidgetResizable(true);
     ui->exercise_area->setWidget(exercise_layout_);
 
+    routine_layout_ = new RoutineLayout(this);
+    ui->routine_area->setWidgetResizable(true);
+    ui->routine_area->setWidget(routine_layout_);
+
     tooltip_ = new Tooltip(this);
     tooltip_->hide();
 
@@ -53,8 +57,6 @@ void MainWindow::OnExerciseEntered()
 
    tooltip_->SetLabels(ex->name_, ex->instruction_);
    tooltip_->show();
-
-
 }
 
 void MainWindow::LoadExercises()
@@ -74,13 +76,25 @@ void MainWindow::LoadExercises()
         Exercise* exercise = new Exercise(ex.toObject(), this);
         connect(exercise, SIGNAL(Entered()), this, SLOT(OnExerciseEntered()));
         connect(exercise, SIGNAL(Exited()), this, SLOT(OnExerciseExited()));
-        exercise_layout_->AddExercise(exercise);
+        connect(exercise->add_button_, SIGNAL(clicked(bool)), this, SLOT(OnAddToRoutinePressed()));
+        exercise_layout_->AddExercise(*exercise);
     }
 
    file.close();
 }
 
+void MainWindow::OnAddToRoutinePressed()
+{
+   Exercise* ex = dynamic_cast<Exercise*>(sender()->parent());
+   if (!ex) return;
 
+   if (ex->parent() == exercise_layout_){
+       routine_layout_->AddExercise(*ex);
+   }
+   else{
+       exercise_layout_->AddExercise(*ex);
+   }
+}
 
 
 

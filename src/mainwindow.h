@@ -3,6 +3,7 @@
 #include <QMainWindow>
 
 #include "exercise_layout.h"
+#include "routine_layout.h"
 #include "tooltip.h"
 
 QT_BEGIN_NAMESPACE
@@ -22,9 +23,11 @@ public:
 private slots:
     void OnExerciseEntered();
     void OnExerciseExited() {tooltip_->hide();}
+    void OnAddToRoutinePressed();
 
 private:
     Ui::MainWindow *ui;
     ExerciseLayout* exercise_layout_;
+    RoutineLayout* routine_layout_;
     Tooltip* tooltip_;
 };
