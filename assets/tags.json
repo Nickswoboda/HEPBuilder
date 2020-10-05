@@ -1,0 +1,4 @@
+{ "Body Part" : [ "Abdominal", "Ankle", "Back", "Chest", "Elbow", "Foot", "Hand", "Hip", "Knee", "Neck", "Shoulder", "Wrist"],
+"Type" : ["Agility", "AROM", "Balance", "Eccentric", "Flexibility", "Isometric", "PROM", "Strength"],
+"Movement" : [ "Abduction", "Adduction", "Eversion", "Extension", "External Rotation", "Flexion", "Horizontal Abduction", "Internal Rotation", "Inversion", "Lateral Flexion", "Pronation", "Rotation (Cervical)", "Supination"],
+"Equipment" : ["Ball", "Bosu Ball", "Dumbbell", "Elastic Band", "Foam Pad", "Foam Roll", "Putty", "TRX", "Wand"]} 

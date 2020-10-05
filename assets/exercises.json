@@ -1,0 +1,574 @@
+[
+    {
+        "img path": "assets/images/STANDING HEEL RAISE.jpg",
+        "instruction": "While standing, raise up onto your toes and lift your heels up off the ground.",
+        "name": "STANDING HEEL RAISE",
+        "tags": [
+            "Ankle",
+            "Strength",
+            "Extension"
+        ]
+    },
+    {
+        "img path": "assets/images/STANDING CALF STRETCHS.jpg",
+        "instruction": "Stand in front of a wall. Step forward with one foot and keep your toes on both feet pointing forward. To stretch the gastrocnemius keep the back leg straight during the stretch. To stretch the soleus, bend the back leg slightly.",
+        "name": "STANDING CALF STRETCH",
+        "tags": [
+            "Ankle",
+            "Flexibility",
+            "PROM",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/ANKLE PUMPS.jpg",
+        "instruction": "Point your toes down and then pull your toes up repeatedly, moving your foot at the ankle joint.",
+        "name": "ANKLE PUMPS",
+        "tags": [
+            "Ankle",
+            "AROM",
+            "Flexibility",
+            "Extension",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/ANKLE ABCS.jpg",
+        "instruction": "While in a seated position write the alphabet with your foot. Your ankle joint should be moving.",
+        "name": "ANKLE ABCS",
+        "tags": [
+            "Ankle",
+            "AROM",
+            "Eversion",
+            "Extension",
+            "Flexion",
+            "Inversion"
+        ]
+    },
+    {
+        "img path": "assets/images/ANKLE CIRCLES.jpg",
+        "instruction": "Move your ankle in a circular pattern, in one direction for several repetitions, then repeat in the opposite direction.",
+        "name": "ANKLE CIRCLES",
+        "tags": [
+            "Ankle",
+            "AROM",
+            "Eversion",
+            "Extension",
+            "Flexion",
+            "Inversion"
+        ]
+    },
+    {
+        "img path": "assets/images/ELASTIC BAND PLANTARFLEXION.jpg",
+        "instruction": "While seated, use an elastic band attached to your foot and press your foot downward and forward.",
+        "name": "ELASTIC BAND: PLANTARFLEXION",
+        "tags": [
+            "Ankle",
+            "Strength",
+            "Extension",
+            "Elastic Band"
+        ]
+    },
+    {
+        "img path": "assets/images/ELASTIC BAND EVERSION.jpg",
+        "instruction": "Using an elastic band attached to your foot, hook it under your opposite foot and up to your hand. Move your foot outwards against the elastic band.",
+        "name": "ELASTIC BAND: EVERSION",
+        "tags": [
+            "Ankle",
+            "Strength",
+            "Eversion",
+            "Elastic Band"
+        ]
+    },
+    {
+        "img path": "assets/images/ELASTIC BAND INVERSION.jpg",
+        "instruction": "While seated, cross your legs and using the elastic band attached to your foot, hook it under your opposite foot and up to your hand. Move your foot inward against the elastic band.",
+        "name": "ELASTIC BAND: INVERSION",
+        "tags": [
+            "Ankle",
+            "Strength",
+            "Inversion",
+            "Elastic Band"
+        ]
+    },
+    {
+        "img path": "assets/images/ELASTIC BAND DORSIFLEXION.jpg",
+        "instruction": "While seated, have an elastic band attached to your foot, pull your foot upward against the elastic band.",
+        "name": "ELASTIC BAND: DORSIFLEXION",
+        "tags": [
+            "Ankle",
+            "Strength",
+            "Extension",
+            "Elastic Band"
+        ]
+    },
+    {
+        "img path": "assets/images/SINGLE LEG STANCE.jpg",
+        "instruction": "Stand on one leg and maintain your balance.",
+        "name": "SINGLE LEG STANCE",
+        "tags": [
+            "Ankle",
+            "Balance"
+        ]
+    },
+    {
+        "img path": "assets/images/QUAD SETS.jpg",
+        "instruction": "Tighten your quad and try to press the back of your knee towards the table.",
+        "name": "QUAD SETS",
+        "tags": [
+            "Knee",
+            "Flexibility",
+            "Strength",
+            "Extension"
+        ]
+    },
+    {
+        "img path": "assets/images/HEEL SLIDES.jpg",
+        "instruction": "While laying on a table, slide your affected heel towards your butt. Return to the starting position.",
+        "name": "HEEL SLIDES",
+        "tags": [
+            "Knee",
+            "Flexibility",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/LONG ARC QUADS.jpg",
+        "instruction": "While seated with knees bent, straighten your knee and point your toes up.",
+        "name": "LONG ARC QUADS",
+        "tags": [
+            "Knee",
+            "Strength",
+            "Extension"
+        ]
+    },
+    {
+        "img path": "assets/images/SHORT ARC QUAD.jpg",
+        "instruction": "Place a rolled up towel under your knee and straighten your leg.",
+        "name": "SHORT ARC QUAD",
+        "tags": [
+            "Knee",
+            "Strength",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/STRAIGHT LEG RAISES.jpg",
+        "instruction": "While lying on your back, keep the affected knee straight and the unaffected knee bent. Raise the affected leg straight up.",
+        "name": "STRAIGHT LEG RAISES",
+        "tags": [
+            "Hip",
+            "Knee",
+            "Strength",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/SIDELYING HIP ABDUCTION.jpg",
+        "instruction": "Lay on your side. Keeping your knee straight, raise your top leg to the side in-line with your body.",
+        "name": "SIDELYING HIP ABDUCTION",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Abduction"
+        ]
+    },
+    {
+        "img path": "assets/images/SIDELYING HIP ADDUCTION.jpg",
+        "instruction": "Lay on your side and cross your top leg over the bottom. While keeping the bottom knee straight, lift your leg into the air, in-line with your body.",
+        "name": "SIDELYING HIP ADDUCTION",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Adduction"
+        ]
+    },
+    {
+        "img path": "assets/images/PRONE HIP EXTENSION.jpg",
+        "instruction": "Lay on your stomach. Keep your knee straight and lift your leg off of the table.",
+        "name": "PRONE HIP EXTENSION",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Extension"
+        ]
+    },
+    {
+        "img path": "assets/images/SIDELYING CLAMSHELLS.jpg",
+        "instruction": "Lie on your side with your hip and knees bent. Raise your top knee up while keeping both feet in contact with another.",
+        "name": "SIDELYING CLAMSHELLS",
+        "tags": [
+            "Hip",
+            "Strength",
+            "External Rotation"
+        ]
+    },
+    {
+        "img path": "assets/images/BRIDGE.jpg",
+        "instruction": "Lie on your back with knees bent. Squeeze your buttocks and raise your hip into the air.",
+        "name": "BRIDGE",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Extension"
+        ]
+    },
+    {
+        "img path": "assets/images/SEATED MARCHING.jpg",
+        "instruction": "While seating, raise your knee straight up into the air. Repeat with the other leg.",
+        "name": "SEATED MARCHING",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/STANDING MARCHES.jpg",
+        "instruction": "While standing, lift your knee straight up into air. Repeat with the other leg.",
+        "name": "STANDING MARCHES",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/STANDING HIP ABDUCTION.jpg",
+        "instruction": "While standing and knees kept straight, bring your leg out to your side.",
+        "name": "STANDING HIP ABDUCTION",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Abduction"
+        ]
+    },
+    {
+        "img path": "assets/images/STANDING HIP EXTENSION.jpg",
+        "instruction": "While stranding with knees straight, bring your leg straight back. Make sure to keep your chest up and not lean forward.",
+        "name": "STANDING HIP EXTENSION",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Extension"
+        ]
+    },
+    {
+        "img path": "assets/images/SUPINE HIP ABDUCTION.jpg",
+        "instruction": "Lie on your back with knees bent, and place an elastic band around your knees. Keeping your feet on the ground, bring your knees outward.",
+        "name": "SUPINE HIP ABDUCTION",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Abduction",
+            "Elastic Band"
+        ]
+    },
+    {
+        "img path": "assets/images/SUPINE HIP ADDUCTION.jpg",
+        "instruction": "Lie on your back with knees bent. Place a rolled up towel or ball between your legs. Squeeze the object between your knees.",
+        "name": "SUPINE HIP ADDUCTION",
+        "tags": [
+            "Hip",
+            "Strength",
+            "Adduction"
+        ]
+    },
+    {
+        "img path": "assets/images/SQUATS.jpg",
+        "instruction": "Stand with your legs shoulder-width apart. Bend your hips and knees as if sitting back into a seat then return to the starting position. Keep your weight on your heels and do not let your knees go in front of your toes.",
+        "name": "SQUATS",
+        "tags": [
+            "Hip",
+            "Knee",
+            "Strength",
+            "Extension",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/PELVIC TILT.jpg",
+        "instruction": "While lying on your back with knees bent, arch and flatten your back repeatedly.",
+        "name": "PELVIC TILT",
+        "tags": [
+            "Back",
+            "Hip",
+            "Strength",
+            "Extension",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/OVERHEAD PULLEY FLEXION.jpg",
+        "instruction": "Slowly pull down with your unaffected arm to raise your affect arm up. Your uaffected arm should be doing all of the work.",
+        "name": "OVERHEAD PULLEY FLEXION",
+        "tags": [
+            "Shoulder",
+            "Flexibility",
+            "PROM",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/SCAPULAR SQUEEZES.jpg",
+        "instruction": "Draw your shoulder blades back to get a good squeeze on your scapulae.",
+        "name": "SCAPULAR SQUEEZES",
+        "tags": [
+            "Shoulder",
+            "Strength"
+        ]
+    },
+    {
+        "img path": "assets/images/ELASTIC BAND ROWS.jpg",
+        "instruction": "Hold the elastic band with both hands the pull the band back while keeping your elbows bent.",
+        "name": "ELASTIC BAND: ROWS",
+        "tags": [
+            "Shoulder",
+            "Strength",
+            "Extension",
+            "Elastic Band"
+        ]
+    },
+    {
+        "img path": "assets/images/ELASTIC BAND EXTERNAL ROTATION.jpg",
+        "instruction": "Hold an elastic band with the affected arm with your palm up. Keeping your elbow in your side pull the band to the side.",
+        "name": "ELASTIC BAND: EXTERNAL ROTATION",
+        "tags": [
+            "Shoulder",
+            "Strength",
+            "External Rotation",
+            "Elastic Band"
+        ]
+    },
+    {
+        "img path": "assets/images/ELASTIC BAND INTERNAL ROTATION.jpg",
+        "instruction": "Hold an elastic band with the affected arm with palms up. While keeping your elbow to your side, bring the band inward.",
+        "name": "ELASTIC BAND: INTERNAL ROTATION",
+        "tags": [
+            "Shoulder",
+            "Strength",
+            "Internal Rotation",
+            "Elastic Band"
+        ]
+    },
+    {
+        "img path": "assets/images/WAND FLEXION.jpg",
+        "instruction": "Lie on your back holding a wand or cane. Using your unaffected arm to assist, raise the wand overhead.",
+        "name": "WAND FLEXION",
+        "tags": [
+            "Shoulder",
+            "AROM",
+            "Flexibility",
+            "Flexion",
+            "Wand"
+        ]
+    },
+    {
+        "img path": "assets/images/ELASTIC BAND EXTENSION.jpg",
+        "instruction": "Hold the band with both hands and keep your elbows straight. Pull the band straight down to your side.",
+        "name": "ELASTIC BAND: EXTENSION",
+        "tags": [
+            "Shoulder",
+            "Strength",
+            "Extension",
+            "Elastic Band"
+        ]
+    },
+    {
+        "img path": "assets/images/SCAPULAR PUNCHES.jpg",
+        "instruction": "Lie on your back with your arm extended towards the ceiling. Keep your elbow straight and protract your shoulder forward towards the ceiling.",
+        "name": "SCAPULAR PUNCHES",
+        "tags": [
+            "Shoulder",
+            "Strength",
+            "Dumbbell"
+        ]
+    },
+    {
+        "img path": "assets/images/SHOULDER ROLLS.jpg",
+        "instruction": "While sitting straight, move your shoulders in a circular pattern going up, back, and down.",
+        "name": "SHOULDER ROLLS",
+        "tags": [
+            "Shoulder",
+            "AROM"
+        ]
+    },
+    {
+        "img path": "assets/images/SIDELYING EXTERNAL ROTATION.jpg",
+        "instruction": "Lie on your side with your elbow bent tucked into your side. While keeping your elbow bent, move your arm towards the ceiling.",
+        "name": "SIDELYING EXTERNAL ROTATION",
+        "tags": [
+            "Shoulder",
+            "Strength",
+            "External Rotation"
+        ]
+    },
+    {
+        "img path": "assets/images/PRONE EXTENSION.jpg",
+        "instruction": "Lie on your stomach with your arm off the side of the table. Keeping your elbow straight, raise your arm towards your side.",
+        "name": "PRONE EXTENSION",
+        "tags": [
+            "Shoulder",
+            "Extension",
+            "Dumbbell"
+        ]
+    },
+    {
+        "img path": "assets/images/PRONE HORIZONTAL ABDUCTION.jpg",
+        "instruction": "Lie on your stomach with your arm hanging off the table. While keeping your elbow straight, raise your arm straight to the side.",
+        "name": "PRONE HORIZONTAL ABDUCTION",
+        "tags": [
+            "Shoulder",
+            "Strength",
+            "Horizontal Abduction",
+            "Dumbbell"
+        ]
+    },
+    {
+        "img path": "assets/images/WRIST FLEXOR STRETCH.jpg",
+        "instruction": "Keep your elbow straight and use your unaffected hand to bend your affected wrist upwards.",
+        "name": "WRIST FLEXOR STRETCH",
+        "tags": [
+            "Wrist",
+            "Flexibility",
+            "PROM",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/WRIST EXTENSOR STRETCH.jpg",
+        "instruction": "Keep your elbow straight and use your unaffected hand to bend your affected wrist down.",
+        "name": "WRIST EXTENSOR STRETCH",
+        "tags": [
+            "Wrist",
+            "Flexibility",
+            "PROM",
+            "Extension"
+        ]
+    },
+    {
+        "img path": "assets/images/ELBOW FLEXION EXTENSION.jpg",
+        "instruction": "Standing up, bend and straighen your elbow repeatedly.",
+        "name": "ELBOW FLEXION EXTENSION",
+        "tags": [
+            "Elbow",
+            "Extension",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/PUTTY SQUEEZE.jpg",
+        "instruction": "Holding putty in the palm of your hand, squeeze slowly and tightly. Reshape and repeat.",
+        "name": "PUTTY SQUEEZE",
+        "tags": [
+            "Hand",
+            "Wrist",
+            "Strength",
+            "Flexion",
+            "Putty"
+        ]
+    },
+    {
+        "img path": "assets/images/FINGER TAPS.jpg",
+        "instruction": "Using your thumb, alternate touching the tips of your thumb and your fingers. Thumb to pointer, thumb to middle, etc.",
+        "name": "FINGER TAPS",
+        "tags": [
+            "Hand",
+            "Flexibility",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/WRIST TENDON GLIDES.jpg",
+        "instruction": "Start with an open palm and bend your fingers to a claw hand. Return to an open palm and then to an \"L\" hand\". Return to an open palm and then make a fist. Repeat the series.",
+        "name": "WRIST TENDON GLIDES",
+        "tags": [
+            "Hand",
+            "Wrist",
+            "Extension",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/WAND PRONATION SUPINATION.jpg",
+        "instruction": "Using a long object like a hammer and your wrist on a table, rotation your forearm back and forth.",
+        "name": "WAND PRONATION SUPINATION",
+        "tags": [
+            "Wrist",
+            "Pronation",
+            "Supination",
+            "Wand"
+        ]
+    },
+    {
+        "img path": "assets/images/WRIST CURL - EXTENSION.jpg",
+        "instruction": "Rest your forearm on a table with a small free-weight in your hand. With your palm face down, bend your wirst up and down.",
+        "name": "WRIST CURL - EXTENSION",
+        "tags": [
+            "Wrist",
+            "Extension",
+            "Dumbbell"
+        ]
+    },
+    {
+        "img path": "assets/images/WRIST CURL - FLEXION.jpg",
+        "instruction": "Rest your forearm on a table with a free-weight in your hand. With your palm facing up, bend your wrist up and down.",
+        "name": "WRIST CURL - FLEXION",
+        "tags": [
+            "Wrist",
+            "Strength",
+            "Flexion",
+            "Dumbbell"
+        ]
+    },
+    {
+        "img path": "assets/images/PRAYER STRETCH.jpg",
+        "instruction": "Place your wrists together in front of your chest and hold.",
+        "name": "PRAYER STRETCH",
+        "tags": [
+            "Wrist",
+            "Flexibility",
+            "PROM",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/TOWEL SCRUNCH.jpg",
+        "instruction": "Place a towel on a table in front of you. Flex your fingers and pull the towel towards you.",
+        "name": "TOWEL SCRUNCH",
+        "tags": [
+            "Hand",
+            "Strength",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/MARBLE PICK-UP.jpg",
+        "instruction": "With marbles laid out on a towel. Pick up a marble one at a time and place it into your hand. Once your hand is full place them back on the towel.",
+        "name": "MARBLE PICK-UP",
+        "tags": [
+            "Hand",
+            "Strength",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/SUPINE CHIN TUCK.jpg",
+        "instruction": "Laying flat on a table, bring your chin to your chest. Keep the back of your head on the table at all times.",
+        "name": "SUPINE CHIN TUCK",
+        "tags": [
+            "Neck",
+            "Strength",
+            "Flexion"
+        ]
+    },
+    {
+        "img path": "assets/images/CERVICAL RETRATION.jpg",
+        "instruction": "While standing straight, bring your neck back until your ears line up with your shoulders.",
+        "name": "CERVICAL RETRATION",
+        "tags": [
+            "Neck",
+            "Strength"
+        ]
+    }
+]
