@@ -16,7 +16,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->exercise_area->setWidget(exercise_layout_);
 
     for (int i = 0; i < 32; ++i){
-        Exercise* ex = new Exercise("Howdy" + QString::number(i), "/dev/HEPBuilder/assets/Squat.jpg", "dodasda thisasdhjisadhiasdihsadhias\n\nsdidsaidja\n/nsdsa", {}, this);
+        Exercise* ex = new Exercise("Howdy" + QString::number(i), "/dev/HEPDesigner/assets/Squat.jpg", "dodasda thisasdhjisadhiasdihsadhias\n\nsdidsaidja\n/nsdsa", {}, this);
         connect(ex, SIGNAL(Entered()), this, SLOT(OnExerciseEntered()));
         connect(ex, SIGNAL(Exited()), this, SLOT(OnExerciseExited()));
         exercise_layout_->AddExercise(ex);
@@ -58,3 +58,7 @@ void MainWindow::OnExerciseEntered()
 
 }
 
+void MainWindow::LoadExercises()
+{
+
+}

@@ -17,6 +17,8 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+    void LoadExercises();
+
 private slots:
     void OnExerciseEntered();
     void OnExerciseExited() {tooltip_->hide();}

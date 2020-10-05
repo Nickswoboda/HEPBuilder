@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(HEPBuilder LANGUAGES CXX)
+project(HEPDesigner LANGUAGES CXX)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -28,7 +28,7 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
 
 if(ANDROID)
-  add_library(HEPBuilder SHARED
+  add_library(HEPDesigner SHARED
     src/main.cpp
     src/mainwindow.cpp
     src/mainwindow.h
@@ -41,7 +41,7 @@ if(ANDROID)
     src/tooltip.cpp
     )
 else()
-  add_executable(HEPBuilder
+  add_executable(HEPDesigner
     src/main.cpp
     src/mainwindow.cpp
     src/mainwindow.h
@@ -56,4 +56,4 @@ else()
 
 endif()
 
-target_link_libraries(HEPBuilder PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(HEPDesigner PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
