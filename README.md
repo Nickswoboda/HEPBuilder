@@ -1,2 +1,2 @@
-# HEPBuilder
-Home Exercise Program Builder
+# HEPDesigner
+Home Exercise Program Designer
