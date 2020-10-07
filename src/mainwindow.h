@@ -24,6 +24,7 @@ private slots:
     void OnExerciseEntered();
     void OnExerciseExited() {tooltip_->hide();}
     void OnAddToRoutinePressed();
+    void OnPreviewButtonPressed();
 
 private:
     Ui::MainWindow *ui;

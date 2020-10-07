@@ -7,7 +7,7 @@
 
 #include "exercise.h"
 #include "exercise_layout.h"
-
+#include "preview_window.h"
 #include "tooltip.h"
 
 MainWindow::MainWindow(QWidget *parent)
@@ -25,6 +25,8 @@ MainWindow::MainWindow(QWidget *parent)
 
     tooltip_ = new Tooltip(this);
     tooltip_->hide();
+
+    connect(ui->preview_button, SIGNAL(clicked()), this, SLOT(OnPreviewButtonPressed()));
 
     LoadExercises();
 }
@@ -96,7 +98,8 @@ void MainWindow::OnAddToRoutinePressed()
    }
 }
 
-
-
-
-
+void MainWindow::OnPreviewButtonPressed()
+{
+    PreviewWindow* preview = new PreviewWindow(this);
+    preview->exec();
+}

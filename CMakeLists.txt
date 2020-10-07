@@ -41,6 +41,9 @@ if(ANDROID)
     src/routine_layout.h
     src/tooltip.h
     src/tooltip.cpp
+    src/preview_window.cpp
+    src/preview_window.h
+    src/previewwindow.ui
     )
 else()
   add_executable(HEPDesigner
@@ -56,6 +59,9 @@ else()
     src/routine_layout.h
     src/tooltip.h
     src/tooltip.cpp
+    src/preview_window.cpp
+    src/preview_window.h
+    src/previewwindow.ui
     )
 
 endif()
