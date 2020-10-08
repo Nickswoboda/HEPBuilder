@@ -44,6 +44,9 @@ if(ANDROID)
     src/preview_window.cpp
     src/preview_window.h
     src/previewwindow.ui
+    src/exercise_card.cpp
+    src/exercise_card.h
+    src/exercisecard.ui
     )
 else()
   add_executable(HEPDesigner
@@ -62,6 +65,9 @@ else()
     src/preview_window.cpp
     src/preview_window.h
     src/previewwindow.ui
+    src/exercise_card.cpp
+    src/exercise_card.h
+    src/exercisecard.ui
     )
 
 endif()

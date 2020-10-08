@@ -31,4 +31,5 @@ private:
     ExerciseLayout* exercise_layout_;
     RoutineLayout* routine_layout_;
     Tooltip* tooltip_;
+    std::vector<Exercise*> selected_exercises_;
 };

@@ -92,6 +92,7 @@ void MainWindow::OnAddToRoutinePressed()
 
    if (ex->parent() == exercise_layout_){
        routine_layout_->AddExercise(*ex);
+       selected_exercises_.push_back(ex);
    }
    else{
        exercise_layout_->AddExercise(*ex);
@@ -100,6 +101,6 @@ void MainWindow::OnAddToRoutinePressed()
 
 void MainWindow::OnPreviewButtonPressed()
 {
-    PreviewWindow* preview = new PreviewWindow(this);
+    PreviewWindow* preview = new PreviewWindow(selected_exercises_, this);
     preview->exec();
 }
