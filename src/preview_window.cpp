@@ -7,13 +7,16 @@ PreviewWindow::PreviewWindow(const std::vector<Exercise*>& exercises, QWidget* p
     ui_.setupUi(this);
     //dummy widget needed for scrollarea to work properly
     auto widget = new QWidget(this);
-    v_box_ = new QVBoxLayout(this);
+    v_box_ = new QVBoxLayout();
     widget->setLayout(v_box_);
+    v_box_->setAlignment(Qt::AlignTop);
 
-    for (const auto& ex : exercises){
-        ExerciseCard* card = new ExerciseCard(*ex, this);
-        v_box_->addWidget(card);
-    }
 
     ui_.preview_area->setWidget(widget);
+    for (const auto& ex : exercises){
+        ExerciseCard* card = new ExerciseCard(*ex, widget);
+        widget->layout()->addWidget(card);
+    }
 }
+
+

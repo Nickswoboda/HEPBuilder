@@ -11,7 +11,5 @@ public:
     ExerciseCard(const Exercise& exercise, QWidget *parent = nullptr);
 
     Ui::ExerciseCard ui_;
-signals:
-
 };
 

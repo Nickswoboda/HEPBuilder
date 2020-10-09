@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>461</width>
-    <height>150</height>
+    <width>620</width>
+    <height>160</height>
    </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>620</width>
+    <height>160</height>
+   </size>
   </property>
   <property name="windowTitle">
    <string>Form</string>
@@ -88,9 +94,9 @@
        <property name="geometry">
         <rect>
          <x>0</x>
-         <y>20</y>
+         <y>-10</y>
          <width>101</width>
-         <height>111</height>
+         <height>161</height>
         </rect>
        </property>
        <layout class="QFormLayout" name="set_layout">
