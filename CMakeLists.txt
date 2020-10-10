@@ -25,7 +25,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 #endif()
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
-find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets REQUIRED)
+find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets PrintSupport REQUIRED)
 
 if(ANDROID)
   add_library(HEPDesigner SHARED
@@ -72,4 +72,6 @@ else()
 
 endif()
 
-target_link_libraries(HEPDesigner PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+target_link_libraries(HEPDesigner PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
+    Qt5::PrintSupport
+    )
