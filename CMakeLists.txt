@@ -26,30 +26,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets PrintSupport REQUIRED)
-
-if(ANDROID)
-  add_library(HEPDesigner SHARED
-    src/main.cpp
-    src/mainwindow.cpp
-    src/mainwindow.h
-    src/mainwindow.ui
-    src/exercise.h
-    src/exercise.cpp
-    src/exercise_layout.cpp
-    src/exercise_layout.h
-    src/routine_layout.cpp
-    src/routine_layout.h
-    src/tooltip.h
-    src/tooltip.cpp
-    src/preview_window.cpp
-    src/preview_window.h
-    src/previewwindow.ui
-    src/exercise_card.cpp
-    src/exercise_card.h
-    src/exercisecard.ui
-    )
-else()
-  add_executable(HEPDesigner
+add_executable(HEPDesigner
     src/main.cpp
     src/mainwindow.cpp
     src/mainwindow.h
@@ -68,9 +45,11 @@ else()
     src/exercise_card.cpp
     src/exercise_card.h
     src/exercisecard.ui
-    )
+    src/print_card.cpp
+    src/print_card.h
+    src/printcard.ui
+)
 
-endif()
 
 target_link_libraries(HEPDesigner PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
     Qt5::PrintSupport
