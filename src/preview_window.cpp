@@ -1,9 +1,11 @@
 #include "preview_window.h"
-#include "exercise_card.h"
 
 #include <QtPrintSupport/QPrintPreviewDialog>
 #include <QPainter>
 #include <iostream>
+
+#include "exercise_card.h"
+#include "print_card.h"
 
 PreviewWindow::PreviewWindow(const std::vector<Exercise*>& exercises, QWidget* parent)
     :QDialog(parent)
@@ -33,16 +35,18 @@ void PreviewWindow::OnPrintPressed()
 void PreviewWindow::DrawPrintPreview(QPrinter* printer)
 {
     QPainter painter(printer);
-    const int ex_per_page = 7;
+
+    const int ex_per_page = 4;
 
     for (int i = 0; i < v_box_->count(); ++i){
-        QWidget* card = v_box_->itemAt(i)->widget();
-        card->render(&painter);
-        painter.translate(0, 180);
+        ExerciseCard* card = dynamic_cast<ExerciseCard*>(v_box_->itemAt(i)->widget());
+        PrintCard print_card(*card, this);
+        print_card.render(&painter);
+        painter.translate(0, 200);
         if (i == ex_per_page){
             printer->newPage();
         //move painter back to top of page
-            painter.translate(0, -180 * 8);
+            painter.translate(0, -200 * 5);
         }
     }
 }
