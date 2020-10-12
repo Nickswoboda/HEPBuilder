@@ -9,31 +9,36 @@
 #include "exercise_layout.h"
 #include "preview_window.h"
 #include "tooltip.h"
+#include "save_routine_window.h"
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
-    , ui(new Ui::MainWindow)
+    , ui_(new Ui::MainWindow)
 {
-    ui->setupUi(this);
+    ui_->setupUi(this);
     exercise_layout_ = new ExerciseLayout(this);
-    ui->exercise_area->setWidgetResizable(true);
-    ui->exercise_area->setWidget(exercise_layout_);
+    ui_->exercise_area->setWidgetResizable(true);
+    ui_->exercise_area->setWidget(exercise_layout_);
 
     routine_layout_ = new RoutineLayout(this);
-    ui->routine_area->setWidgetResizable(true);
-    ui->routine_area->setWidget(routine_layout_);
+    ui_->routine_area->setWidgetResizable(true);
+    ui_->routine_area->setWidget(routine_layout_);
 
     tooltip_ = new Tooltip(this);
     tooltip_->hide();
 
-    connect(ui->preview_button, SIGNAL(clicked()), this, SLOT(OnPreviewButtonPressed()));
+    connect(ui_->preview_button, SIGNAL(clicked()), this, SLOT(OnPreviewButtonPressed()));
+    connect(ui_->load_button, SIGNAL(clicked()), this, SLOT(OnLoadButtonPressed()));
+    connect(ui_->save_button, SIGNAL(clicked()), this, SLOT(OnSaveButtonPressed()));
+
 
     LoadExercises();
 }
 
 MainWindow::~MainWindow()
 {
-    delete ui;
+    delete ui_;
 }
 
 void MainWindow::OnExerciseEntered()
@@ -103,4 +108,15 @@ void MainWindow::OnPreviewButtonPressed()
 {
     PreviewWindow* preview = new PreviewWindow(selected_exercises_, this);
     preview->exec();
+}
+
+void MainWindow::OnSaveButtonPressed()
+{
+    SaveRoutineWindow* save_window = new SaveRoutineWindow(*routine_layout_, this);
+    save_window->exec();
+}
+
+void MainWindow::OnLoadButtonPressed()
+{
+
 }

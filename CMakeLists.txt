@@ -48,6 +48,9 @@ add_executable(HEPDesigner
     src/print_card.cpp
     src/print_card.h
     src/printcard.ui
+    src/save_routine_window.cpp
+    src/save_routine_window.h
+    src/saveroutinewindow.ui
 )
 
 

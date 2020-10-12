@@ -23,11 +23,15 @@ public:
 private slots:
     void OnExerciseEntered();
     void OnExerciseExited() {tooltip_->hide();}
+
     void OnAddToRoutinePressed();
     void OnPreviewButtonPressed();
 
+    void OnSaveButtonPressed();
+    void OnLoadButtonPressed();
+
 private:
-    Ui::MainWindow *ui;
+    Ui::MainWindow *ui_;
     ExerciseLayout* exercise_layout_;
     RoutineLayout* routine_layout_;
     Tooltip* tooltip_;
