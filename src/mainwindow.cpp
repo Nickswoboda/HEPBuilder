@@ -10,6 +10,7 @@
 #include "preview_window.h"
 #include "tooltip.h"
 #include "save_routine_window.h"
+#include "load_routine_window.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -118,5 +119,6 @@ void MainWindow::OnSaveButtonPressed()
 
 void MainWindow::OnLoadButtonPressed()
 {
-
+    LoadRoutineWindow* load_window = new LoadRoutineWindow(*exercise_layout_, *routine_layout_, this);
+    load_window->exec();
 }

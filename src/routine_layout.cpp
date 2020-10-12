@@ -16,11 +16,6 @@ void RoutineLayout::AddExercise(Exercise& exercise){
    exercise.add_button_->setText("-");
 }
 
-void RoutineLayout::LoadRoutine()
-{
-
-}
-
 void RoutineLayout::SaveRoutine(const QString& name)
 {
     QJsonDocument doc;
@@ -49,4 +44,13 @@ void RoutineLayout::SaveRoutine(const QString& name)
     doc.setObject(obj);
     file.write(doc.toJson());
     file.close();
+}
+
+void RoutineLayout::Clear()
+{
+    //emit exericse button signal to make mainwindow move exercise back into exercise layout
+    while(!h_box_->isEmpty()){
+        Exercise* ex = dynamic_cast<Exercise*>(h_box_->itemAt(0)->widget());
+        emit ex->add_button_->clicked(false);
+    }
 }

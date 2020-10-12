@@ -2,7 +2,7 @@
 #include "ui_saveroutinewindow.h"
 
 SaveRoutineWindow::SaveRoutineWindow(RoutineLayout& layout, QWidget *parent) :
-    QDialog(parent), ui_(new Ui::SaveRoutineWindow), layout_(&layout)
+    QDialog(parent), ui_(new Ui::SaveRoutineWindow), layout_(layout)
 {
     ui_->setupUi(this);
 
@@ -17,7 +17,7 @@ SaveRoutineWindow::~SaveRoutineWindow()
 
 void SaveRoutineWindow::OnAddButtonPressed()
 {
-    layout_->SaveRoutine(ui_->input_box->text());
+    layout_.SaveRoutine(ui_->input_box->text());
     done(QDialog::Accepted);
 }
 

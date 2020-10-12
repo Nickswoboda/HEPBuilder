@@ -19,5 +19,18 @@ void ExerciseLayout::AddExercise(Exercise& exercise){
     else{
         ++curr_col_;
     }
+}
 
+Exercise* ExerciseLayout::GetExerciseByName(const QString& name)
+{
+    for (int i = 0; i < grid_->count(); ++i){
+        //TODO: implement hashmap for quicker lookup
+        Exercise* ex = dynamic_cast<Exercise*>(grid_->itemAt(i)->widget());
+
+        if (ex && ex->name_ == name){
+            return ex;
+        }
+    }
+
+    return nullptr;
 }

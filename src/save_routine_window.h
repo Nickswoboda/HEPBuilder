@@ -20,7 +20,7 @@ public slots:
     void OnCancelButtonPressed();
 private:
     Ui::SaveRoutineWindow *ui_;
-    RoutineLayout* layout_;
+    RoutineLayout& layout_;
 
 };
 

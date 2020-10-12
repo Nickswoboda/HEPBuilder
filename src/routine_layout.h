@@ -13,8 +13,8 @@ public:
     virtual ~RoutineLayout() {}
 
     void AddExercise(Exercise& exercise);
+    void Clear();
 public slots:
-    void LoadRoutine();
     void SaveRoutine(const QString& name);
 
 private:

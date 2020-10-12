@@ -12,6 +12,7 @@ public:
     explicit ExerciseLayout(QWidget* parent);
 
     void AddExercise(Exercise& exercise);
+    Exercise* GetExerciseByName(const QString& name);
 private:
     QGridLayout* grid_;
     const int max_cols_ = 8;
