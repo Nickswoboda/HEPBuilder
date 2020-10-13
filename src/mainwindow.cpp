@@ -11,6 +11,7 @@
 #include "tooltip.h"
 #include "save_routine_window.h"
 #include "load_routine_window.h"
+#include "add_exercise_window.h"
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -32,6 +33,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui_->preview_button, SIGNAL(clicked()), this, SLOT(OnPreviewButtonPressed()));
     connect(ui_->load_button, SIGNAL(clicked()), this, SLOT(OnLoadButtonPressed()));
     connect(ui_->save_button, SIGNAL(clicked()), this, SLOT(OnSaveButtonPressed()));
+    connect(ui_->create_exercise_button, SIGNAL(clicked()), this, SLOT(OnCreateExerciseButtonPressed()));
 
 
     LoadExercises();
@@ -69,7 +71,7 @@ void MainWindow::OnExerciseEntered()
 
 void MainWindow::LoadExercises()
 {
-    QFile file("C:/dev/HEPDesigner/assets/exercises.json");
+    QFile file("assets/exercises.json");
     if (!file.exists()){
         return;
     }
@@ -82,13 +84,18 @@ void MainWindow::LoadExercises()
 
     for (const auto& ex : exercises){
         Exercise* exercise = new Exercise(ex.toObject(), this);
-        connect(exercise, SIGNAL(Entered()), this, SLOT(OnExerciseEntered()));
-        connect(exercise, SIGNAL(Exited()), this, SLOT(OnExerciseExited()));
-        connect(exercise->add_button_, SIGNAL(clicked(bool)), this, SLOT(OnAddToRoutinePressed()));
-        exercise_layout_->AddExercise(*exercise);
+        InitializeExercise(*exercise);
     }
 
    file.close();
+}
+
+void MainWindow::InitializeExercise(Exercise &exercise)
+{
+    connect(&exercise, SIGNAL(Entered()), this, SLOT(OnExerciseEntered()));
+    connect(&exercise, SIGNAL(Exited()), this, SLOT(OnExerciseExited()));
+    connect(exercise.add_button_, SIGNAL(clicked(bool)), this, SLOT(OnAddToRoutinePressed()));
+    exercise_layout_->AddExercise(exercise);
 }
 
 void MainWindow::OnAddToRoutinePressed()
@@ -121,4 +128,12 @@ void MainWindow::OnLoadButtonPressed()
 {
     LoadRoutineWindow* load_window = new LoadRoutineWindow(*exercise_layout_, *routine_layout_, this);
     load_window->exec();
+}
+
+void MainWindow::OnCreateExerciseButtonPressed()
+{
+    AddExerciseWindow* window = new AddExerciseWindow(this);
+    if (window->exec() == QDialog::Accepted){
+        InitializeExercise(*window->exercise_);
+    }
 }

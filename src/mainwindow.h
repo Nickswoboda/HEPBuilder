@@ -19,6 +19,7 @@ public:
     ~MainWindow();
 
     void LoadExercises();
+    void InitializeExercise(Exercise& exercise);
 
 private slots:
     void OnExerciseEntered();
@@ -29,6 +30,8 @@ private slots:
 
     void OnSaveButtonPressed();
     void OnLoadButtonPressed();
+
+    void OnCreateExerciseButtonPressed();
 
 private:
     Ui::MainWindow *ui_;

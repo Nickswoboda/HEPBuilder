@@ -54,6 +54,9 @@ add_executable(HEPDesigner
     src/load_routine_window.cpp
     src/load_routine_window.h
     src/loadroutinewindow.ui
+    src/add_exercise_window.cpp
+    src/add_exercise_window.h
+    src/addexercisewindow.ui
 )
 
 

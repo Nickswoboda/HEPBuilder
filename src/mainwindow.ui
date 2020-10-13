@@ -80,6 +80,13 @@
     </property>
     <layout class="QVBoxLayout" name="button_area">
      <item>
+      <widget class="QPushButton" name="create_exercise_button">
+       <property name="text">
+        <string>Create Exercise</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="load_button">
        <property name="text">
         <string>Load</string>
