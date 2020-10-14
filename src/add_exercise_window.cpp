@@ -10,9 +10,8 @@
 
 #include "exercise.h"
 
-AddExerciseWindow::AddExerciseWindow(QWidget *parent) :
-    QDialog(parent),
-    ui_(new Ui::AddExerciseWindow)
+AddExerciseWindow::AddExerciseWindow(Exercise* exercise, QWidget *parent) :
+    QDialog(parent), exercise_(exercise), ui_(new Ui::AddExerciseWindow)
 {
     ui_->setupUi(this);
     ui_->image->setFixedSize(150, 150);
@@ -20,6 +19,13 @@ AddExerciseWindow::AddExerciseWindow(QWidget *parent) :
     connect(ui_->add_image_button, SIGNAL(clicked()), this, SLOT(OnAddImageButtonPressed()));
     connect(ui_->accept_button, SIGNAL(clicked()), this, SLOT(OnAcceptButtonPressed()));
     connect(ui_->cancel_button, SIGNAL(clicked()), this, SLOT(OnCancelButtonPressed()));
+
+    if (exercise_ != nullptr){
+        ui_->name_edit->setText(exercise_->name_);
+        img_path_ = exercise_->img_path_;
+        ui_->image->setPixmap(QPixmap(img_path_));
+        ui_->instructions_edit->setPlainText(exercise_->instruction_);
+    }
 }
 
 AddExerciseWindow::~AddExerciseWindow()
@@ -48,8 +54,11 @@ void AddExerciseWindow::OnAcceptButtonPressed()
 
     if (exercise_ == nullptr){
         exercise_ = new Exercise(ui_->name_edit->text(), img_path_, ui_->instructions_edit->toPlainText(), {}, this);
+        SaveExercise();
     }
-    SaveExercise();
+    else{
+        UpdateExercise();
+    }
 
     done(QDialog::Accepted);
 }
@@ -92,5 +101,12 @@ void AddExerciseWindow::SaveExercise()
 
     file.write(doc.toJson());
     file.close();
+}
+
+void AddExerciseWindow::UpdateExercise()
+{
+    exercise_->name_ = ui_->name_edit->text();
+    exercise_->img_path_ = img_path_;
+    exercise_->instruction_ = ui_->instructions_edit->toPlainText();
 }
 

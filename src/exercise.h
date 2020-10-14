@@ -25,6 +25,7 @@ public:
     std::vector<QString> tags_;
 
     QPushButton* add_button_;
+    QPushButton* edit_button_;
 
 signals:
     void Entered();

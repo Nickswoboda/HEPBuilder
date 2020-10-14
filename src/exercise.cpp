@@ -16,6 +16,9 @@ Exercise::Exercise(const QString& name, const QString& img_path, const QString& 
     setPixmap(img);
 
     add_button_ = new QPushButton(this);
+    add_button_->setGeometry(0, 0, 20, 20);
+    edit_button_ = new QPushButton("Edit", this);
+    edit_button_->setGeometry(20, 0, 40, 20);
 
 }
 

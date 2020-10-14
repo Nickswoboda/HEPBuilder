@@ -13,7 +13,7 @@ class AddExerciseWindow : public QDialog
     Q_OBJECT
 
 public:
-    explicit AddExerciseWindow(QWidget *parent = nullptr);
+    explicit AddExerciseWindow(Exercise* exercise = nullptr, QWidget *parent = nullptr);
     ~AddExerciseWindow();
 
     Exercise* exercise_ = nullptr;
@@ -27,6 +27,7 @@ private slots:
 private:
 
     void SaveExercise();
+    void UpdateExercise();
 
     Ui::AddExerciseWindow *ui_;
     QString img_path_;

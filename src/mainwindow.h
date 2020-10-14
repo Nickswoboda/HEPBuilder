@@ -32,6 +32,7 @@ private slots:
     void OnLoadButtonPressed();
 
     void OnCreateExerciseButtonPressed();
+    void OnEditExercisePressed();
 
 private:
     Ui::MainWindow *ui_;

@@ -35,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui_->save_button, SIGNAL(clicked()), this, SLOT(OnSaveButtonPressed()));
     connect(ui_->create_exercise_button, SIGNAL(clicked()), this, SLOT(OnCreateExerciseButtonPressed()));
 
-
     LoadExercises();
 }
 
@@ -94,22 +93,23 @@ void MainWindow::InitializeExercise(Exercise &exercise)
 {
     connect(&exercise, SIGNAL(Entered()), this, SLOT(OnExerciseEntered()));
     connect(&exercise, SIGNAL(Exited()), this, SLOT(OnExerciseExited()));
-    connect(exercise.add_button_, SIGNAL(clicked(bool)), this, SLOT(OnAddToRoutinePressed()));
+    connect(exercise.add_button_, SIGNAL(clicked()), this, SLOT(OnAddToRoutinePressed()));
+    connect(exercise.edit_button_, SIGNAL(clicked()), this, SLOT(OnEditExercisePressed()));
     exercise_layout_->AddExercise(exercise);
 }
 
 void MainWindow::OnAddToRoutinePressed()
 {
-   Exercise* ex = dynamic_cast<Exercise*>(sender()->parent());
-   if (!ex) return;
+    Exercise* ex = dynamic_cast<Exercise*>(sender()->parent());
+    if (!ex) return;
 
-   if (ex->parent() == exercise_layout_){
+    if (ex->parent() == exercise_layout_){
        routine_layout_->AddExercise(*ex);
        selected_exercises_.push_back(ex);
-   }
-   else{
+    }
+    else{
        exercise_layout_->AddExercise(*ex);
-   }
+    }
 }
 
 void MainWindow::OnPreviewButtonPressed()
@@ -132,8 +132,17 @@ void MainWindow::OnLoadButtonPressed()
 
 void MainWindow::OnCreateExerciseButtonPressed()
 {
-    AddExerciseWindow* window = new AddExerciseWindow(this);
+    AddExerciseWindow* window = new AddExerciseWindow(nullptr, this);
     if (window->exec() == QDialog::Accepted){
         InitializeExercise(*window->exercise_);
     }
+}
+
+void MainWindow::OnEditExercisePressed()
+{
+   Exercise* ex = dynamic_cast<Exercise*>(sender()->parent());
+   if (!ex) return;
+
+   AddExerciseWindow* window = new AddExerciseWindow(ex, this);
+   window->exec();
 }
