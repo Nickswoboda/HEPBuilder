@@ -22,8 +22,8 @@ Exercise::Exercise(const QString& name, const QString& img_path, const QString& 
 
 }
 
-Exercise::Exercise(const QJsonObject& exercise, QWidget* parent)
-    :Exercise(exercise["name"].toString(), exercise["img path"].toString(), exercise["instruction"].toString(), {}, parent)
+Exercise::Exercise(const QString& name, const QJsonObject& exercise, QWidget* parent)
+    :Exercise(name, exercise["img path"].toString(), exercise["instruction"].toString(), {}, parent)
 {
         QJsonArray tags_array = exercise["tags"].toArray();
         for (const auto& tag : tags_array){

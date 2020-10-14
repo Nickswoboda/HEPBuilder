@@ -79,10 +79,9 @@ void AddExerciseWindow::SaveExercise()
     QByteArray data = file.readAll();
     file.close();
     QJsonDocument doc(QJsonDocument::fromJson(data));
-    QJsonArray arr = doc.array();
+    QJsonObject obj = doc.object();
 
     QJsonObject ex_obj;
-    ex_obj["name"] = exercise_->name_;
     ex_obj["img path"] = exercise_->img_path_;
     ex_obj["instruction"] = exercise_->instruction_;
 
@@ -92,8 +91,8 @@ void AddExerciseWindow::SaveExercise()
     }
     ex_obj["tags"] = tags_arr;
 
-    arr.append(ex_obj);
-    doc = QJsonDocument(arr);
+    obj[exercise_->name_] = ex_obj;
+    doc = QJsonDocument(obj);
 
     if (!file.open(QIODevice::WriteOnly)){
         return;

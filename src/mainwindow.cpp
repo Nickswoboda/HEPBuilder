@@ -3,7 +3,7 @@
 
 #include <QFile>
 #include <QJsonDocument>
-#include <QJsonArray>
+#include <QJsonObject>
 
 #include "exercise.h"
 #include "exercise_layout.h"
@@ -79,10 +79,10 @@ void MainWindow::LoadExercises()
 
     QByteArray data = file.readAll();
     QJsonDocument doc(QJsonDocument::fromJson(data));
-    QJsonArray exercises = doc.array();
+    QJsonObject exercises = doc.object();
 
-    for (const auto& ex : exercises){
-        Exercise* exercise = new Exercise(ex.toObject(), this);
+    for (const auto& name : exercises.keys()){
+        Exercise* exercise = new Exercise(name, exercises[name].toObject(), this);
         InitializeExercise(*exercise);
     }
 
