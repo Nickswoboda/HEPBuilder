@@ -104,8 +104,29 @@ void AddExerciseWindow::SaveExercise()
 
 void AddExerciseWindow::UpdateExercise()
 {
+    //json is indexed by name, if name is changed, we need to
+    if (ui_->name_edit->text() != exercise_->name_){
+    QFile file("assets/exercises.json");
+
+    if (!file.open(QIODevice::ReadOnly)){
+        return;
+    }
+
+    QByteArray data = file.readAll();
+    file.close();
+    QJsonDocument doc(QJsonDocument::fromJson(data));
+    QJsonObject obj = doc.object();
+    obj.remove(exercise_->name_);
+    file.open(QIODevice::WriteOnly);
+    doc = QJsonDocument(obj);
+    file.write(doc.toJson());
+    file.close();
+
+    }
+
     exercise_->name_ = ui_->name_edit->text();
     exercise_->img_path_ = img_path_;
     exercise_->instruction_ = ui_->instructions_edit->toPlainText();
+    SaveExercise();
 }
 
