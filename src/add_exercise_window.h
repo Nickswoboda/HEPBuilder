@@ -23,13 +23,16 @@ private slots:
     void OnAddImageButtonPressed();
     void OnAcceptButtonPressed();
     void OnCancelButtonPressed();
+    void OnEditTagsButtonPressed();
 
 private:
 
     void SaveExercise();
     void UpdateExercise();
+    void SetCurrentTagsLabel(const std::vector<QString>& tags);
 
     Ui::AddExerciseWindow *ui_;
     QString img_path_;
+    std::vector<QString> new_tags_;
 };
 

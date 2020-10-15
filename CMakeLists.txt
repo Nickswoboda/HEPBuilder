@@ -57,6 +57,9 @@ add_executable(HEPDesigner
     src/add_exercise_window.cpp
     src/add_exercise_window.h
     src/addexercisewindow.ui
+    src/add_tags_window.cpp
+    src/add_tags_window.h
+    src/addtagswindow.ui
 )
 
 

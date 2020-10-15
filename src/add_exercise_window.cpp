@@ -9,6 +9,7 @@
 #include <QJsonObject>
 
 #include "exercise.h"
+#include "add_tags_window.h"
 
 AddExerciseWindow::AddExerciseWindow(Exercise* exercise, QWidget *parent) :
     QDialog(parent), exercise_(exercise), ui_(new Ui::AddExerciseWindow)
@@ -19,12 +20,14 @@ AddExerciseWindow::AddExerciseWindow(Exercise* exercise, QWidget *parent) :
     connect(ui_->add_image_button, SIGNAL(clicked()), this, SLOT(OnAddImageButtonPressed()));
     connect(ui_->accept_button, SIGNAL(clicked()), this, SLOT(OnAcceptButtonPressed()));
     connect(ui_->cancel_button, SIGNAL(clicked()), this, SLOT(OnCancelButtonPressed()));
+    connect(ui_->edit_tags_button, SIGNAL(clicked()), this, SLOT(OnEditTagsButtonPressed()));
 
     if (exercise_ != nullptr){
         ui_->name_edit->setText(exercise_->name_);
         img_path_ = exercise_->img_path_;
         ui_->image->setPixmap(QPixmap(img_path_));
         ui_->instructions_edit->setPlainText(exercise_->instruction_);
+        SetCurrentTagsLabel(exercise_->tags_);
     }
 }
 
@@ -53,7 +56,7 @@ void AddExerciseWindow::OnAcceptButtonPressed()
     if (ui_->instructions_edit->toPlainText().isEmpty()) return;
 
     if (exercise_ == nullptr){
-        exercise_ = new Exercise(ui_->name_edit->text(), img_path_, ui_->instructions_edit->toPlainText(), {}, this);
+        exercise_ = new Exercise(ui_->name_edit->text(), img_path_, ui_->instructions_edit->toPlainText(), new_tags_, this);
         SaveExercise();
     }
     else{
@@ -127,6 +130,39 @@ void AddExerciseWindow::UpdateExercise()
     exercise_->name_ = ui_->name_edit->text();
     exercise_->img_path_ = img_path_;
     exercise_->instruction_ = ui_->instructions_edit->toPlainText();
+    exercise_->tags_ = new_tags_;
+
     SaveExercise();
 }
+
+void AddExerciseWindow::OnEditTagsButtonPressed()
+{
+    AddTagsWindow* tag_window;
+    //use current tags if they have not been modified yet
+    if (new_tags_.empty() && exercise_ != nullptr){
+        tag_window = new AddTagsWindow(exercise_->tags_, this);
+    }
+    else{
+        tag_window = new AddTagsWindow(new_tags_, this);
+    }
+    if (tag_window->exec() == QDialog::Accepted){
+        new_tags_ = tag_window->selected_tags_;
+        SetCurrentTagsLabel(new_tags_);
+    }
+
+}
+
+void AddExerciseWindow::SetCurrentTagsLabel(const std::vector<QString>& tags)
+{
+    new_tags_ = tags;
+    QString text;
+    for (const auto& tag : tags){
+        text.append(tag + ", ");
+    }
+    //remove last comma
+    text.chop(2);
+
+    ui_->current_tags_label->setText(text);
+}
+
 
