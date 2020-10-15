@@ -3,7 +3,7 @@
 #include <QPixmap>
 #include <QJsonArray>
 
-Exercise::Exercise(const QString& name, const QString& img_path, const QString& instruct, const std::vector<QString>& tags, QWidget *parent)
+Exercise::Exercise(const QString& name, const QString& img_path, const QString& instruct, const QSet<QString>& tags, QWidget *parent)
     :QLabel(parent), name_(name), img_path_(img_path), instruction_(instruct), tags_(tags)
 {
     QPixmap img(img_path_);
@@ -27,7 +27,7 @@ Exercise::Exercise(const QString& name, const QJsonObject& exercise, QWidget* pa
 {
         QJsonArray tags_array = exercise["tags"].toArray();
         for (const auto& tag : tags_array){
-            tags_.push_back(tag.toString());
+            tags_.insert(tag.toString());
         }
 }
 

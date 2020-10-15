@@ -152,7 +152,7 @@ void AddExerciseWindow::OnEditTagsButtonPressed()
 
 }
 
-void AddExerciseWindow::SetCurrentTagsLabel(const std::vector<QString>& tags)
+void AddExerciseWindow::SetCurrentTagsLabel(const QSet<QString>& tags)
 {
     new_tags_ = tags;
     QString text;

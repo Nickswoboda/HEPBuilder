@@ -6,7 +6,7 @@
 #include <QJsonArray>
 #include <QJsonObject>
 
-AddTagsWindow::AddTagsWindow(const std::vector<QString> &tags, QWidget *parent) :
+AddTagsWindow::AddTagsWindow(const QSet<QString> &tags, QWidget *parent) :
     QDialog(parent),
     ui_(new Ui::AddTagsWindow)
 {
@@ -66,13 +66,13 @@ void AddTagsWindow::AddCheckbox(Column column, const QString& text)
     }
 }
 
-std::vector<QString> AddTagsWindow::GetSelectedTags()
+QSet<QString> AddTagsWindow::GetSelectedTags()
 {
-    std::vector<QString> tags;
+    QSet<QString> tags;
 
     for (auto box : tag_boxes_){
         if (box->isChecked()){
-            tags.push_back(box->text());
+            tags.insert(box->text());
         }
     }
 
@@ -90,14 +90,11 @@ void AddTagsWindow::OnCancelButtonPressed()
     done(QDialog::Rejected);
 }
 
-void AddTagsWindow::PreselectCheckboxes(const std::vector<QString>& tags)
+void AddTagsWindow::PreselectCheckboxes(const QSet<QString>& tags)
 {
-    //TODO: Make tags an unordered set or bitset
     for (auto box : tag_boxes_){
-        for (auto& tag : tags){
-            if (box->text() == tag){
-                box->setCheckState(Qt::Checked);
-            }
+        if (tags.contains(box->text())){
+            box->setCheckState(Qt::Checked);
         }
     }
 }

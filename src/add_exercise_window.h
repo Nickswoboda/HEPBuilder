@@ -29,10 +29,10 @@ private:
 
     void SaveExercise();
     void UpdateExercise();
-    void SetCurrentTagsLabel(const std::vector<QString>& tags);
+    void SetCurrentTagsLabel(const QSet<QString>& tags);
 
     Ui::AddExerciseWindow *ui_;
     QString img_path_;
-    std::vector<QString> new_tags_;
+    QSet<QString> new_tags_;
 };
 

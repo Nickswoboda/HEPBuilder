@@ -2,6 +2,7 @@
 
 #include <QDialog>
 #include <QCheckBox>
+#include <QSet>
 
 namespace Ui {
 class AddTagsWindow;
@@ -26,18 +27,18 @@ public:
         Equipment,
     };
 
-    explicit AddTagsWindow(const std::vector<QString>& tags, QWidget *parent = nullptr);
+    explicit AddTagsWindow(const QSet<QString>& tags, QWidget *parent = nullptr);
     ~AddTagsWindow();
 
-    std::vector<QString> selected_tags_;
+    QSet<QString> selected_tags_;
 private slots:
     void OnAcceptButtonPressed();
     void OnCancelButtonPressed();
 private:
     void AddCheckbox(Column column, const QString& text);
     void LoadTagsFromJson();
-    void PreselectCheckboxes(const std::vector<QString>& tags);
-    std::vector<QString> GetSelectedTags();
+    void PreselectCheckboxes(const QSet<QString>& tags);
+    QSet<QString> GetSelectedTags();
 
     std::vector<QCheckBox*> tag_boxes_;
 
