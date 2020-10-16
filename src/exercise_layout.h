@@ -13,6 +13,9 @@ public:
     explicit ExerciseLayout(QWidget* parent);
 
     void AddExercise(Exercise& exercise);
+    void AddExerciseToGrid(Exercise& exercise);
+    void RemoveExerciseFromGrid(Exercise& exercise);
+    void RemoveAllItemsFromGrid();
     Exercise* GetExerciseByName(const QString& name);
 
 public slots:

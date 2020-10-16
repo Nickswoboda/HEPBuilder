@@ -51,6 +51,7 @@ void LoadRoutineWindow::OnLoadButtonPressed()
         Exercise* ex = exercise_layout_.GetExerciseByName(item.toString());
         if (ex){
             routine_layout_.AddExercise(*ex);
+            exercise_layout_.RemoveExerciseFromGrid(*ex);
         }
 
     }

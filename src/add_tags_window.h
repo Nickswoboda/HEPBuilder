@@ -8,13 +8,6 @@ namespace Ui {
 class AddTagsWindow;
 }
 
-enum Category{
-    BodyPart,
-    Type,
-    Movement,
-    Equipment,
-};
-
 class AddTagsWindow : public QDialog
 {
     Q_OBJECT

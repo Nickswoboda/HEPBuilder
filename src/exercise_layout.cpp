@@ -9,10 +9,14 @@ ExerciseLayout::ExerciseLayout(QWidget* parent)
 }
 
 void ExerciseLayout::AddExercise(Exercise& exercise){
-    grid_->addWidget(&exercise, curr_row_, curr_col_);
     exercises_[exercise.name_] = &exercise;
-    exercise.add_button_->setText("+");
+    AddExerciseToGrid(exercise);
+}
 
+void ExerciseLayout::AddExerciseToGrid(Exercise &exercise)
+{
+    exercise.add_button_->setText("+");
+    grid_->addWidget(&exercise, curr_row_, curr_col_);
     if (curr_col_ == max_cols_){
        ++curr_row_;
        curr_col_ = 1;
@@ -20,6 +24,26 @@ void ExerciseLayout::AddExercise(Exercise& exercise){
     else{
         ++curr_col_;
     }
+}
+void ExerciseLayout::RemoveExerciseFromGrid(Exercise &exercise)
+{
+    //TODO: this seems inefficient, find a better way
+    RemoveAllItemsFromGrid();
+    for (auto& ex : exercises_){
+        if (ex != &exercise){
+            AddExerciseToGrid(*ex);
+        }
+    }
+    exercises_.remove(exercise.name_);
+}
+
+void ExerciseLayout::RemoveAllItemsFromGrid()
+{
+    for (int i = 0; i < grid_->count(); ++i){
+        grid_->removeItem(grid_->itemAt(i));
+    }
+    curr_row_ = 1;
+    curr_col_ = 1;
 }
 
 Exercise* ExerciseLayout::GetExerciseByName(const QString& name)
@@ -33,10 +57,15 @@ Exercise* ExerciseLayout::GetExerciseByName(const QString& name)
 
 void ExerciseLayout::SearchByName(const QString& name)
 {
+    //Need to remove all items then place them back in if they fit criteria
+    //if not there will be a gap between exercises where the hidden ones were
+    RemoveAllItemsFromGrid();
     for (auto& ex : exercises_){
-        //show if was hidden by previous search
-        ex->show();
-        if (!ex->name_.toLower().contains(name.toLower())){
+        if (ex->name_.contains(name, Qt::CaseInsensitive)){
+            ex->show();
+            AddExerciseToGrid(*ex);
+        }
+        else{
             ex->hide();
         }
     }
@@ -45,14 +74,19 @@ void ExerciseLayout::SearchByName(const QString& name)
 
 void ExerciseLayout::SearchByTags(const QSet<QString>& tags)
 {
+    RemoveAllItemsFromGrid();
     for (auto& ex : exercises_){
-        //show if was hidden by previous search
-        ex->show();
+        bool found = true;
         for (const auto& tag : tags){
             if (!ex->tags_.contains(tag)){
                 ex->hide();
+                found = false;
                 break;
             }
+        }
+        if (found){
+            ex->show();
+            AddExerciseToGrid(*ex);
         }
     }
 }

@@ -111,6 +111,7 @@ void MainWindow::OnAddToRoutinePressed()
 
     if (ex->parent() == exercise_layout_){
        routine_layout_->AddExercise(*ex);
+       exercise_layout_->RemoveExerciseFromGrid(*ex);
        selected_exercises_.push_back(ex);
     }
     else{
