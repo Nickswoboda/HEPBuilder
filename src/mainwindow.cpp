@@ -107,27 +107,27 @@ void MainWindow::OnAddToRoutinePressed()
 
 void MainWindow::OnPreviewButtonPressed()
 {
-    PreviewWindow* preview = new PreviewWindow(selected_exercises_, this);
-    preview->exec();
+    PreviewWindow preview(selected_exercises_, this);
+    preview.exec();
 }
 
 void MainWindow::OnSaveButtonPressed()
 {
-    SaveRoutineWindow* save_window = new SaveRoutineWindow(*routine_layout_, this);
-    save_window->exec();
+    SaveRoutineWindow save_window(*routine_layout_, this);
+    save_window.exec();
 }
 
 void MainWindow::OnLoadButtonPressed()
 {
-    LoadRoutineWindow* load_window = new LoadRoutineWindow(*exercise_layout_, *routine_layout_, this);
-    load_window->exec();
+    LoadRoutineWindow load_window(*exercise_layout_, *routine_layout_, this);
+    load_window.exec();
 }
 
 void MainWindow::OnCreateExerciseButtonPressed()
 {
-    AddExerciseWindow* window = new AddExerciseWindow(nullptr, this);
-    if (window->exec() == QDialog::Accepted){
-        InitializeExercise(*window->exercise_);
+    AddExerciseWindow window(nullptr, this);
+    if (window.exec() == QDialog::Accepted){
+        InitializeExercise(*window.exercise_);
     }
 }
 
@@ -136,8 +136,8 @@ void MainWindow::OnEditExercisePressed()
    Exercise* ex = dynamic_cast<Exercise*>(sender()->parent());
    if (!ex) return;
 
-   AddExerciseWindow* window = new AddExerciseWindow(ex, this);
-   window->exec();
+   AddExerciseWindow window(ex, this);
+   window.exec();
 }
 
 

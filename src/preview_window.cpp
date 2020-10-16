@@ -27,9 +27,9 @@ PreviewWindow::PreviewWindow(const std::vector<Exercise*>& exercises, QWidget* p
 
 void PreviewWindow::OnPrintPressed()
 {
-    QPrintPreviewDialog* preview = new QPrintPreviewDialog(this);
-    connect(preview, SIGNAL(paintRequested(QPrinter*)), this, SLOT(DrawPrintPreview(QPrinter*)));
-    preview->exec();
+    QPrintPreviewDialog preview(this);
+    connect(&preview, SIGNAL(paintRequested(QPrinter*)), this, SLOT(DrawPrintPreview(QPrinter*)));
+    preview.exec();
 }
 
 void PreviewWindow::DrawPrintPreview(QPrinter* printer)

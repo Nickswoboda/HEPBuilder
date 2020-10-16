@@ -137,16 +137,10 @@ void AddExerciseWindow::UpdateExercise()
 
 void AddExerciseWindow::OnEditTagsButtonPressed()
 {
-    AddTagsWindow* tag_window;
-    //use current tags if they have not been modified yet
-    if (new_tags_.empty() && exercise_ != nullptr){
-        tag_window = new AddTagsWindow(exercise_->tags_, this);
-    }
-    else{
-        tag_window = new AddTagsWindow(new_tags_, this);
-    }
-    if (tag_window->exec() == QDialog::Accepted){
-        new_tags_ = tag_window->selected_tags_;
+    AddTagsWindow tag_window(new_tags_, this);
+
+    if (tag_window.exec() == QDialog::Accepted){
+        new_tags_ = tag_window.selected_tags_;
         SetCurrentTagsLabel(new_tags_);
     }
 
