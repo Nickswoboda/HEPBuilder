@@ -2,6 +2,7 @@
 
 #include <QWidget>
 #include <QGridLayout>
+#include <QHash>
 
 #include "exercise.h"
 
@@ -19,6 +20,7 @@ public slots:
     void SearchByTags(const QSet<QString>& tags);
 private:
     QGridLayout* grid_;
+    QHash<QString, Exercise*> exercises_;
     const int max_cols_ = 8;
     int curr_row_ = 1;
     int curr_col_ = 1;

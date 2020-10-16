@@ -10,6 +10,7 @@ ExerciseLayout::ExerciseLayout(QWidget* parent)
 
 void ExerciseLayout::AddExercise(Exercise& exercise){
     grid_->addWidget(&exercise, curr_row_, curr_col_);
+    exercises_[exercise.name_] = &exercise;
     exercise.add_button_->setText("+");
 
     if (curr_col_ == max_cols_){
@@ -23,13 +24,8 @@ void ExerciseLayout::AddExercise(Exercise& exercise){
 
 Exercise* ExerciseLayout::GetExerciseByName(const QString& name)
 {
-    for (int i = 0; i < grid_->count(); ++i){
-        //TODO: implement hashmap for quicker lookup
-        Exercise* ex = dynamic_cast<Exercise*>(grid_->itemAt(i)->widget());
-
-        if (ex && ex->name_ == name){
-            return ex;
-        }
+    if (exercises_.contains(name)){
+        return exercises_[name];
     }
 
     return nullptr;
@@ -37,8 +33,7 @@ Exercise* ExerciseLayout::GetExerciseByName(const QString& name)
 
 void ExerciseLayout::SearchByName(const QString& name)
 {
-    for (int i = 0; i < grid_->count(); ++i){
-        Exercise* ex = dynamic_cast<Exercise*>(grid_->itemAt(i)->widget());
+    for (auto& ex : exercises_){
         //show if was hidden by previous search
         ex->show();
         if (!ex->name_.toLower().contains(name.toLower())){
@@ -50,8 +45,7 @@ void ExerciseLayout::SearchByName(const QString& name)
 
 void ExerciseLayout::SearchByTags(const QSet<QString>& tags)
 {
-    for (int i = 0; i < grid_->count(); ++i){
-        Exercise* ex = dynamic_cast<Exercise*>(grid_->itemAt(i)->widget());
+    for (auto& ex : exercises_){
         //show if was hidden by previous search
         ex->show();
         for (const auto& tag : tags){
