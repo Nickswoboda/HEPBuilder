@@ -3,15 +3,16 @@
 #include <QWidget>
 #include <QLabel>
 
+#include "exercise.h"
+
 class Tooltip : public QWidget
 {
 public:
     explicit Tooltip(QWidget *parent = nullptr);
 
-    void SetLabels(const QString& name, const QString& instruction);
+    void PlaceOnExercise(const Exercise& ex);
 
-	QLabel* name_label_;
+    QLabel* name_label_;
 	QLabel* instruction_label_;
-
 };
 

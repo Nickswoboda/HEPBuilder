@@ -22,15 +22,32 @@ Tooltip::Tooltip(QWidget *parent) : QWidget(parent)
     instruction_label_->setWordWrap(true);
     instruction_label_->setStyleSheet("border-bottom: 0px");
 
-
     layout->addWidget(name_label_);
 	layout->addWidget(instruction_label_);
 
-    setGeometry(0, 0, 165, 160);
+    setFixedSize(160, 165);
+    hide();
 }
 
-void Tooltip::SetLabels(const QString& name, const QString& instruction)
+void Tooltip::PlaceOnExercise(const Exercise& ex)
 {
-   name_label_->setText(name);
-   instruction_label_->setText(instruction);
+   QWidget* main_window = parentWidget();
+   QPoint mouse_pos = main_window->mapFromGlobal(QCursor::pos());
+   QPoint mouse_pos_on_ex = ex.mapFromGlobal(QCursor::pos());
+
+   //make sure tooltip is placed below the exercise that is being hovered
+   mouse_pos.rx() -= mouse_pos_on_ex.x();
+   mouse_pos.ry() += ex.geometry().height() - mouse_pos_on_ex.y();
+
+   //make sure tooltip is placed completely within the main window
+   if (mouse_pos.x() + geometry().width() > main_window->geometry().width()){
+       mouse_pos.rx() = main_window->geometry().width() - geometry().width();
+   }
+   if (mouse_pos.y() + geometry().height() > main_window->geometry().height()){
+       mouse_pos.ry() = main_window->geometry().height() - geometry().height();
+   }
+   move(mouse_pos.x(), mouse_pos.y());
+   name_label_->setText(ex.name_);
+   instruction_label_->setText(ex.instruction_);
+   show();
 }

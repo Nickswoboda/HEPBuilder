@@ -5,8 +5,6 @@
 #include <QPushButton>
 #include <QSet>
 
-#include "tooltip.h"
-
 class Exercise : public QLabel
 {
     Q_OBJECT

@@ -32,7 +32,6 @@ MainWindow::MainWindow(QWidget *parent)
     ui_->search_by_tag_layout->addWidget(tag_search_area_);
 
     tooltip_ = new Tooltip(this);
-    tooltip_->hide();
 
     connect(ui_->preview_button, SIGNAL(clicked()), this, SLOT(OnPreviewButtonPressed()));
     connect(ui_->load_button, SIGNAL(clicked()), this, SLOT(OnLoadButtonPressed()));
@@ -55,24 +54,7 @@ void MainWindow::OnExerciseEntered()
    Exercise* ex = dynamic_cast<Exercise*>(sender());
    if (!ex) return;
 
-   QPoint mouse_pos = mapFromGlobal(QCursor::pos());
-   QPoint mouse_pos_on_ex = ex->mapFromGlobal(QCursor::pos());
-
-   //make sure tooltip is placed below the exercise that is being hovered
-   mouse_pos.rx() -= mouse_pos_on_ex.x();
-   mouse_pos.ry() += ex->geometry().height() - mouse_pos_on_ex.y();
-
-   //make sure tooltip is placed completely within the main window
-   if (mouse_pos.x() + tooltip_->geometry().width() > geometry().width()){
-       mouse_pos.rx() = geometry().width() - tooltip_->geometry().width();
-   }
-   if (mouse_pos.y() + tooltip_->geometry().height() > geometry().height()){
-       mouse_pos.ry() = geometry().height() - tooltip_->geometry().height();
-   }
-   tooltip_->move(mouse_pos.x(), mouse_pos.y());
-
-   tooltip_->SetLabels(ex->name_, ex->instruction_);
-   tooltip_->show();
+   tooltip_->PlaceOnExercise(*ex);
 }
 
 void MainWindow::LoadExercises()
