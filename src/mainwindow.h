@@ -4,6 +4,7 @@
 
 #include "exercise_layout.h"
 #include "routine_layout.h"
+#include "tag_search_area.h"
 #include "tooltip.h"
 
 QT_BEGIN_NAMESPACE
@@ -34,10 +35,15 @@ private slots:
     void OnCreateExerciseButtonPressed();
     void OnEditExercisePressed();
 
+    void OnSearchButtonPressed();
+    void OnResetSearchButtonPressed();
+
 private:
     Ui::MainWindow *ui_;
     ExerciseLayout* exercise_layout_;
     RoutineLayout* routine_layout_;
+    TagSearchArea* tag_search_area_;
+
     Tooltip* tooltip_;
     std::vector<Exercise*> selected_exercises_;
 };

@@ -27,6 +27,9 @@ MainWindow::MainWindow(QWidget *parent)
     ui_->routine_area->setWidgetResizable(true);
     ui_->routine_area->setWidget(routine_layout_);
 
+    tag_search_area_ = new TagSearchArea(this);
+    ui_->search_by_tag_layout->addWidget(tag_search_area_);
+
     tooltip_ = new Tooltip(this);
     tooltip_->hide();
 
@@ -34,6 +37,9 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui_->load_button, SIGNAL(clicked()), this, SLOT(OnLoadButtonPressed()));
     connect(ui_->save_button, SIGNAL(clicked()), this, SLOT(OnSaveButtonPressed()));
     connect(ui_->create_exercise_button, SIGNAL(clicked()), this, SLOT(OnCreateExerciseButtonPressed()));
+    connect(ui_->search_button, SIGNAL(clicked()), this, SLOT(OnSearchButtonPressed()));
+    connect(ui_->reset_search_button, SIGNAL(clicked()), this, SLOT(OnResetSearchButtonPressed()));
+    connect(tag_search_area_, SIGNAL(TagSearchUpdated(QSet<QString>)), exercise_layout_, SLOT(SearchByTags(const QSet<QString>&)));
 
     LoadExercises();
 }
@@ -145,4 +151,15 @@ void MainWindow::OnEditExercisePressed()
 
    AddExerciseWindow* window = new AddExerciseWindow(ex, this);
    window->exec();
+}
+
+
+void MainWindow::OnSearchButtonPressed()
+{
+    exercise_layout_->SearchByName(ui_->search_edit->text());
+}
+
+void MainWindow::OnResetSearchButtonPressed()
+{
+    exercise_layout_->SearchByName("");
 }

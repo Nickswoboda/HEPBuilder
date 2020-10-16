@@ -13,6 +13,10 @@ public:
 
     void AddExercise(Exercise& exercise);
     Exercise* GetExerciseByName(const QString& name);
+
+public slots:
+    void SearchByName(const QString& name);
+    void SearchByTags(const QSet<QString>& tags);
 private:
     QGridLayout* grid_;
     const int max_cols_ = 8;

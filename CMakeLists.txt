@@ -60,6 +60,8 @@ add_executable(HEPDesigner
     src/add_tags_window.cpp
     src/add_tags_window.h
     src/addtagswindow.ui
+    src/tag_search_area.cpp
+    src/tag_search_area.h
 )
 
 

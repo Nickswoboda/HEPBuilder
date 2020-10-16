@@ -17,9 +17,9 @@
    <widget class="QScrollArea" name="exercise_area">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>220</x>
       <y>0</y>
-      <width>1121</width>
+      <width>1061</width>
       <height>501</height>
      </rect>
     </property>
@@ -37,7 +37,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>1102</width>
+       <width>1042</width>
        <height>499</height>
       </rect>
      </property>
@@ -46,9 +46,9 @@
    <widget class="QScrollArea" name="routine_area">
     <property name="geometry">
      <rect>
-      <x>160</x>
+      <x>220</x>
       <y>510</y>
-      <width>1001</width>
+      <width>941</width>
       <height>161</height>
      </rect>
     </property>
@@ -63,7 +63,7 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>999</width>
+       <width>939</width>
        <height>142</height>
       </rect>
      </property>
@@ -108,6 +108,78 @@
       </widget>
      </item>
     </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>211</width>
+      <height>101</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="search_by_name_layout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <widget class="QLabel" name="search_name_label">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string>Search by Name:</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="search_edit"/>
+     </item>
+     <item>
+      <widget class="QPushButton" name="search_button">
+       <property name="text">
+        <string>Search</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="reset_search_button">
+       <property name="text">
+        <string>Reset</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>140</y>
+      <width>211</width>
+      <height>531</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="search_by_tag_layout"/>
+   </widget>
+   <widget class="QLabel" name="label">
+    <property name="geometry">
+     <rect>
+      <x>70</x>
+      <y>120</y>
+      <width>81</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Search by Tag: </string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">

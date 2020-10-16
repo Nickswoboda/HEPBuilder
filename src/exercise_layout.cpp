@@ -34,3 +34,31 @@ Exercise* ExerciseLayout::GetExerciseByName(const QString& name)
 
     return nullptr;
 }
+
+void ExerciseLayout::SearchByName(const QString& name)
+{
+    for (int i = 0; i < grid_->count(); ++i){
+        Exercise* ex = dynamic_cast<Exercise*>(grid_->itemAt(i)->widget());
+        //show if was hidden by previous search
+        ex->show();
+        if (!ex->name_.toLower().contains(name.toLower())){
+            ex->hide();
+        }
+    }
+
+}
+
+void ExerciseLayout::SearchByTags(const QSet<QString>& tags)
+{
+    for (int i = 0; i < grid_->count(); ++i){
+        Exercise* ex = dynamic_cast<Exercise*>(grid_->itemAt(i)->widget());
+        //show if was hidden by previous search
+        ex->show();
+        for (const auto& tag : tags){
+            if (!ex->tags_.contains(tag)){
+                ex->hide();
+                break;
+            }
+        }
+    }
+}
