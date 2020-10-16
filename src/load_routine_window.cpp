@@ -13,6 +13,8 @@ LoadRoutineWindow::LoadRoutineWindow(ExerciseLayout& exercise_layout, RoutineLay
     LoadRoutineNames();
 
     connect(ui_->load_button, SIGNAL(clicked()), this, SLOT(OnLoadButtonPressed()));
+    connect(ui_->cancel_button, SIGNAL(clicked()), this, SLOT(OnCancelButtonPressed()));
+    connect(ui_->delete_button, SIGNAL(clicked()), this, SLOT(OnDeleteButtonPressed()));
 }
 
 LoadRoutineWindow::~LoadRoutineWindow()
@@ -35,17 +37,17 @@ void LoadRoutineWindow::LoadRoutineNames()
     for (auto& key : json_obj_.keys()){
         ui_->routine_list->addItem(key);
     }
-
-    file.close();
 }
 
 void LoadRoutineWindow::OnLoadButtonPressed()
 {
-    routine_layout_.Clear();
-
     auto selection = ui_->routine_list->selectedItems();
+    if (selection.empty()) return;
+
     QString name = selection[0]->text();
     QJsonArray routine = json_obj_[name].toArray();
+
+    routine_layout_.Clear();
 
     for (auto item : routine){
         Exercise* ex = exercise_layout_.GetExerciseByName(item.toString());
@@ -59,10 +61,22 @@ void LoadRoutineWindow::OnLoadButtonPressed()
 
 void LoadRoutineWindow::OnCancelButtonPressed()
 {
-
+    done(QDialog::Rejected);
 }
 
 void LoadRoutineWindow::OnDeleteButtonPressed()
 {
+    auto selection = ui_->routine_list->selectedItems();
+    if (selection.empty()) return;
 
+    json_obj_.remove(selection[0]->text());
+    delete selection[0];
+
+    QFile file("assets/routines.json");
+    if (!file.open(QIODevice::WriteOnly)){
+        return;
+    }
+
+    QJsonDocument doc(json_obj_);
+    file.write(doc.toJson());
 }
