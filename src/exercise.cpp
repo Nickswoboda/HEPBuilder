@@ -2,13 +2,14 @@
 
 #include <QPixmap>
 #include <QJsonArray>
+#include <QMessageBox>
 
 Exercise::Exercise(const QString& name, const QString& img_path, const QString& instruct, const QSet<QString>& tags, QWidget *parent)
     :QLabel(parent), name_(name), img_path_(img_path), instruction_(instruct), tags_(tags)
 {
     QPixmap img(img_path_);
     if (img.isNull()){
-        return;
+        throw std::runtime_error("Unable to load image: " + img_path_.toStdString());
     }
 
     setFixedSize(130, 130);

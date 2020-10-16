@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
+#include <QMessageBox>
 
 #include "exercise.h"
 #include "exercise_layout.h"
@@ -88,11 +89,14 @@ void MainWindow::LoadExercises()
     QJsonObject exercises = doc.object();
 
     for (const auto& name : exercises.keys()){
+        //exercise may throw if unable to load image
+        try {
         Exercise* exercise = new Exercise(name, exercises[name].toObject(), this);
         InitializeExercise(*exercise);
+        }  catch (std::exception& e) {
+            QMessageBox::warning(this, "Unable to load exercise", QString::fromStdString(e.what()));
+        }
     }
-
-   file.close();
 }
 
 void MainWindow::InitializeExercise(Exercise &exercise)
