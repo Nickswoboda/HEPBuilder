@@ -39,7 +39,7 @@ void PreviewWindow::DrawPrintPreview(QPrinter* printer)
     const int ex_per_page = 4;
 
     for (int i = 0; i < v_box_->count(); ++i){
-        ExerciseCard* card = dynamic_cast<ExerciseCard*>(v_box_->itemAt(i)->widget());
+        ExerciseCard* card = static_cast<ExerciseCard*>(v_box_->itemAt(i)->widget());
         PrintCard print_card(*card, this);
         print_card.render(&painter);
         painter.translate(0, 200);

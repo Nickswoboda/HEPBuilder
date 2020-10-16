@@ -51,9 +51,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::OnExerciseEntered()
 {
-   Exercise* ex = dynamic_cast<Exercise*>(sender());
-   if (!ex) return;
-
+   Exercise* ex = static_cast<Exercise*>(sender());
    tooltip_->PlaceOnExercise(*ex);
 }
 
@@ -92,8 +90,7 @@ void MainWindow::InitializeExercise(Exercise &exercise)
 
 void MainWindow::OnAddToRoutinePressed()
 {
-    Exercise* ex = dynamic_cast<Exercise*>(sender()->parent());
-    if (!ex) return;
+    Exercise* ex = static_cast<Exercise*>(sender()->parent());
 
     if (ex->parent() == exercise_layout_){
        routine_layout_->AddExercise(*ex);
@@ -133,8 +130,7 @@ void MainWindow::OnCreateExerciseButtonPressed()
 
 void MainWindow::OnEditExercisePressed()
 {
-   Exercise* ex = dynamic_cast<Exercise*>(sender()->parent());
-   if (!ex) return;
+   Exercise* ex = static_cast<Exercise*>(sender()->parent());
 
    AddExerciseWindow window(ex, this);
    window.exec();

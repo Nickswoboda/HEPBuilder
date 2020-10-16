@@ -34,7 +34,7 @@ void RoutineLayout::SaveRoutine(const QString& name)
     //add json entry for routine
     QJsonArray arr;
     for (int i = 0; i < h_box_->count(); ++i){
-        Exercise* ex = dynamic_cast<Exercise*>(h_box_->itemAt(i)->widget());
+        Exercise* ex = static_cast<Exercise*>(h_box_->itemAt(i)->widget());
         arr.append(ex->name_);
     }
     obj[name] = arr;
@@ -50,7 +50,7 @@ void RoutineLayout::Clear()
 {
     //emit exericse button signal to make mainwindow move exercise back into exercise layout
     while(!h_box_->isEmpty()){
-        Exercise* ex = dynamic_cast<Exercise*>(h_box_->itemAt(0)->widget());
+        Exercise* ex = static_cast<Exercise*>(h_box_->itemAt(0)->widget());
         emit ex->add_button_->clicked(false);
     }
 }

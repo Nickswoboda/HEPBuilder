@@ -77,7 +77,7 @@ void TagSearchArea::SetUpCheckboxes()
 
 void TagSearchArea::OnCheckboxPressed(int state)
 {
-    QCheckBox* box = dynamic_cast<QCheckBox*>(sender());
+    QCheckBox* box = static_cast<QCheckBox*>(sender());
 
     if (state == Qt::Checked){
         selected_tags_.insert(box->text());
