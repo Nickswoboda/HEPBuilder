@@ -101,6 +101,13 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="clear_routine_button">
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="preview_button">
        <property name="text">
         <string>Preview</string>

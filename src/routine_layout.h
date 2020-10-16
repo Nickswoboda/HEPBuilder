@@ -13,9 +13,9 @@ public:
     virtual ~RoutineLayout() {}
 
     void AddExercise(Exercise& exercise);
-    void Clear();
 public slots:
     void SaveRoutine(const QString& name);
+    void Clear();
 
 private:
     QHBoxLayout* h_box_;

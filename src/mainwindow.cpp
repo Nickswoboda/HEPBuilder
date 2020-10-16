@@ -40,6 +40,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui_->search_button, SIGNAL(clicked()), this, SLOT(OnSearchButtonPressed()));
     connect(ui_->reset_search_button, SIGNAL(clicked()), this, SLOT(OnResetSearchButtonPressed()));
     connect(tag_search_area_, SIGNAL(TagSearchUpdated(QSet<QString>)), exercise_layout_, SLOT(SearchByTags(const QSet<QString>&)));
+    connect(ui_->clear_routine_button, SIGNAL(clicked()), routine_layout_, SLOT(Clear()));
 
     LoadExercises();
 }
