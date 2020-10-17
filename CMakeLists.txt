@@ -65,6 +65,12 @@ add_executable(HEPDesigner
 )
 
 
-target_link_libraries(HEPDesigner PRIVATE Qt${QT_VERSION_MAJOR}::Widgets
-    Qt5::PrintSupport
+target_link_libraries(HEPDesigner PRIVATE
+    Qt${QT_VERSION_MAJOR}::Widgets
+    Qt${QT_VERSION_MAJOR}::PrintSupport
+    )
+
+add_custom_command(TARGET HEPDesigner POST_BUILD
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+    ${CMAKE_CURRENT_SOURCE_DIR}/assets ${CMAKE_BINARY_DIR}/assets
     )
