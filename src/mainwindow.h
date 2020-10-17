@@ -45,5 +45,4 @@ private:
     TagSearchArea* tag_search_area_;
 
     Tooltip* tooltip_;
-    std::vector<Exercise*> selected_exercises_;
 };

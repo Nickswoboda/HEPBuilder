@@ -96,7 +96,6 @@ void MainWindow::OnAddToRoutinePressed()
     if (ex->parent() == exercise_layout_){
        routine_layout_->AddExercise(*ex);
        exercise_layout_->RemoveExerciseFromGrid(*ex);
-       selected_exercises_.push_back(ex);
     }
     else{
        exercise_layout_->AddExercise(*ex);
@@ -105,7 +104,8 @@ void MainWindow::OnAddToRoutinePressed()
 
 void MainWindow::OnPreviewButtonPressed()
 {
-    PreviewWindow preview(selected_exercises_, this);
+    std::vector<Exercise*> routine_exercises = routine_layout_->GetExercises();
+    PreviewWindow preview(routine_exercises, this);
     preview.exec();
 }
 

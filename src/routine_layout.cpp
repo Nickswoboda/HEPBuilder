@@ -16,6 +16,18 @@ void RoutineLayout::AddExercise(Exercise& exercise){
    exercise.add_button_->setText("-");
 }
 
+std::vector<Exercise*> RoutineLayout::GetExercises()
+{
+    std::vector<Exercise*> exercises;
+
+    for (int i = 0; i < h_box_->count(); ++i){
+        Exercise* ex = static_cast<Exercise*>(h_box_->itemAt(i)->widget());
+        exercises.push_back(ex);
+    }
+
+    return exercises;
+}
+
 void RoutineLayout::SaveRoutine(const QString& name)
 {
     QJsonDocument doc;
