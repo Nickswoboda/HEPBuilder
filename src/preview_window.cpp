@@ -10,6 +10,8 @@
 PreviewWindow::PreviewWindow(const std::vector<Exercise*>& exercises, QWidget* parent)
     :QDialog(parent)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
+
     ui_.setupUi(this);
     //dummy widget needed for scrollarea to work properly
     auto widget = new QWidget(this);

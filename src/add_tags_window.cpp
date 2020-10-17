@@ -10,6 +10,8 @@ AddTagsWindow::AddTagsWindow(const QSet<QString> &tags, QWidget *parent) :
     QDialog(parent),
     ui_(new Ui::AddTagsWindow)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
+
     ui_->setupUi(this);
     LoadTagsFromJson();
     if (!tags.empty()){

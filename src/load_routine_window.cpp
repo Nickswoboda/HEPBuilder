@@ -8,6 +8,7 @@
 LoadRoutineWindow::LoadRoutineWindow(ExerciseLayout& exercise_layout, RoutineLayout& routine_layout, QWidget *parent) :
     QDialog(parent), ui_(new Ui::LoadRoutineWindow), exercise_layout_(exercise_layout), routine_layout_(routine_layout)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui_->setupUi(this);
 
     LoadRoutineNames();

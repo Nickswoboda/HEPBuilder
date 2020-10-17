@@ -4,6 +4,8 @@
 SaveRoutineWindow::SaveRoutineWindow(RoutineLayout& layout, QWidget *parent) :
     QDialog(parent), ui_(new Ui::SaveRoutineWindow), layout_(layout)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
+
     ui_->setupUi(this);
 
     connect(ui_->add_button, SIGNAL(clicked()), this, SLOT(OnAddButtonPressed()));

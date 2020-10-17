@@ -14,6 +14,8 @@
 AddExerciseWindow::AddExerciseWindow(Exercise* exercise, QWidget *parent) :
     QDialog(parent), exercise_(exercise), ui_(new Ui::AddExerciseWindow)
 {
+    setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
+
     ui_->setupUi(this);
     ui_->image->setFixedSize(150, 150);
 
