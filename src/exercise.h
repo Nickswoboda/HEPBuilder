@@ -16,6 +16,9 @@ public:
     void enterEvent(QEvent* event) override;
     void leaveEvent(QEvent* event) override;
 
+    void SaveToJson();
+    void DeleteFromJson();
+
     QString name_;
     QString img_path_;
     QString instruction_;

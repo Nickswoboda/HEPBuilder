@@ -30,6 +30,11 @@ AddExerciseWindow::AddExerciseWindow(Exercise* exercise, QWidget *parent) :
         ui_->image->setPixmap(QPixmap(img_path_));
         ui_->instructions_edit->setPlainText(exercise_->instruction_);
         SetCurrentTagsLabel(exercise_->tags_);
+
+        connect(ui_->delete_button, SIGNAL(clicked()), this, SLOT(OnDeleteButtonPressed()));
+    }
+    else {
+        ui_->delete_button->hide();
     }
 }
 
@@ -60,7 +65,7 @@ void AddExerciseWindow::OnAcceptButtonPressed()
     if (exercise_ == nullptr){
         exercise_ = new Exercise(ui_->name_edit->text(), img_path_, ui_->instructions_edit->toPlainText(), new_tags_, this);
         SaveImage();
-        SaveExercise();
+        exercise_->SaveToJson();
     }
     else{
         UpdateExercise();
@@ -72,40 +77,6 @@ void AddExerciseWindow::OnAcceptButtonPressed()
 void AddExerciseWindow::OnCancelButtonPressed()
 {
     done(QDialog::Rejected);
-}
-
-void AddExerciseWindow::SaveExercise()
-{
-    QFile file("assets/exercises.json");
-
-    if (!file.open(QIODevice::ReadOnly)){
-        return;
-    }
-
-    QByteArray data = file.readAll();
-    file.close();
-    QJsonDocument doc(QJsonDocument::fromJson(data));
-    QJsonObject obj = doc.object();
-
-    QJsonObject ex_obj;
-    ex_obj["img path"] = exercise_->img_path_;
-    ex_obj["instruction"] = exercise_->instruction_;
-
-    QJsonArray tags_arr;
-    for (auto& tag : exercise_->tags_){
-        tags_arr.append(tag);
-    }
-    ex_obj["tags"] = tags_arr;
-
-    obj[exercise_->name_] = ex_obj;
-    doc = QJsonDocument(obj);
-
-    if (!file.open(QIODevice::WriteOnly)){
-        return;
-    }
-
-    file.write(doc.toJson());
-    file.close();
 }
 
 void AddExerciseWindow::SaveImage()
@@ -122,22 +93,7 @@ void AddExerciseWindow::UpdateExercise()
 {
     //json is indexed by name, if name is changed, we need to
     if (ui_->name_edit->text() != exercise_->name_){
-    QFile file("assets/exercises.json");
-
-    if (!file.open(QIODevice::ReadOnly)){
-        return;
-    }
-
-    QByteArray data = file.readAll();
-    file.close();
-    QJsonDocument doc(QJsonDocument::fromJson(data));
-    QJsonObject obj = doc.object();
-    obj.remove(exercise_->name_);
-    file.open(QIODevice::WriteOnly);
-    doc = QJsonDocument(obj);
-    file.write(doc.toJson());
-    file.close();
-
+        exercise_->DeleteFromJson();
     }
 
     exercise_->name_ = ui_->name_edit->text();
@@ -145,7 +101,7 @@ void AddExerciseWindow::UpdateExercise()
     exercise_->instruction_ = ui_->instructions_edit->toPlainText();
     exercise_->tags_ = new_tags_;
 
-    SaveExercise();
+    exercise_->SaveToJson();
 }
 
 void AddExerciseWindow::OnEditTagsButtonPressed()
@@ -157,6 +113,12 @@ void AddExerciseWindow::OnEditTagsButtonPressed()
         SetCurrentTagsLabel(new_tags_);
     }
 
+}
+
+void AddExerciseWindow::OnDeleteButtonPressed()
+{
+    emit DeleteButtonPressed(*exercise_);
+    QDialog::done(QDialog::Rejected);
 }
 
 void AddExerciseWindow::SetCurrentTagsLabel(const QSet<QString>& tags)

@@ -90,3 +90,14 @@ void ExerciseLayout::SearchByTags(const QSet<QString>& tags)
         }
     }
 }
+
+void ExerciseLayout::DeleteExercise(Exercise& exercise)
+{
+    exercises_.remove(exercise.name_);
+    exercise.DeleteFromJson();
+    //remove and hide exercise instead of deleting.
+    //exercise will be deleted once mainwindow closes
+    grid_->removeWidget(&exercise);
+    exercise.hide();
+
+}

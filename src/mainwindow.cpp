@@ -134,6 +134,7 @@ void MainWindow::OnEditExercisePressed()
    Exercise* ex = static_cast<Exercise*>(sender()->parent());
 
    AddExerciseWindow window(ex, this);
+   connect(&window, SIGNAL(DeleteButtonPressed(Exercise&)), exercise_layout_, SLOT(DeleteExercise(Exercise&)));
    window.exec();
 }
 

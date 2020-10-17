@@ -21,6 +21,7 @@ public:
 public slots:
     void SearchByName(const QString& name);
     void SearchByTags(const QSet<QString>& tags);
+    void DeleteExercise(Exercise& name);
 private:
     QGridLayout* grid_;
     QHash<QString, Exercise*> exercises_;

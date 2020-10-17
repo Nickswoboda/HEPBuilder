@@ -3,6 +3,9 @@
 #include <QPixmap>
 #include <QJsonArray>
 #include <QMessageBox>
+#include <QFile>
+#include <QJsonDocument>
+#include <QJsonObject>
 
 Exercise::Exercise(const QString& name, const QString& img_path, const QString& instruct, const QSet<QString>& tags, QWidget *parent)
     :QLabel(parent), name_(name), img_path_(img_path), instruction_(instruct), tags_(tags)
@@ -40,4 +43,56 @@ void Exercise::enterEvent(QEvent *event)
 void Exercise::leaveEvent(QEvent *event)
 {
     emit Exited();
+}
+
+void Exercise::SaveToJson()
+{
+    QFile file("assets/exercises.json");
+
+    if (!file.open(QIODevice::ReadOnly)){
+        return;
+    }
+
+    QByteArray data = file.readAll();
+    file.close();
+    QJsonDocument doc(QJsonDocument::fromJson(data));
+    QJsonObject obj = doc.object();
+
+    QJsonObject ex_obj;
+    ex_obj["img path"] = img_path_;
+    ex_obj["instruction"] = instruction_;
+
+    QJsonArray tags_arr;
+    for (auto& tag : tags_){
+        tags_arr.append(tag);
+    }
+    ex_obj["tags"] = tags_arr;
+
+    obj[name_] = ex_obj;
+    doc = QJsonDocument(obj);
+
+    if (!file.open(QIODevice::WriteOnly)){
+        return;
+    }
+
+    file.write(doc.toJson());
+
+}
+
+void Exercise::DeleteFromJson()
+{
+    QFile file("assets/exercises.json");
+    if (!file.open(QIODevice::ReadOnly)){
+        return;
+    }
+
+    QByteArray data = file.readAll();
+    file.close();
+    QJsonDocument doc(QJsonDocument::fromJson(data));
+    QJsonObject obj = doc.object();
+    obj.remove(name_);
+    file.open(QIODevice::WriteOnly);
+    doc = QJsonDocument(obj);
+    file.write(doc.toJson());
+    file.close();
 }

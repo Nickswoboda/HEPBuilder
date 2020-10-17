@@ -24,10 +24,10 @@ private slots:
     void OnAcceptButtonPressed();
     void OnCancelButtonPressed();
     void OnEditTagsButtonPressed();
+    void OnDeleteButtonPressed();
 
 private:
 
-    void SaveExercise();
     void SaveImage();
     void UpdateExercise();
     void SetCurrentTagsLabel(const QSet<QString>& tags);
@@ -35,5 +35,8 @@ private:
     Ui::AddExerciseWindow *ui_;
     QString img_path_;
     QSet<QString> new_tags_;
+
+signals:
+    void DeleteButtonPressed(Exercise& exercise);
 };
 
