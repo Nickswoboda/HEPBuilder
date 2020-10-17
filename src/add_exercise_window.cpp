@@ -59,6 +59,7 @@ void AddExerciseWindow::OnAcceptButtonPressed()
 
     if (exercise_ == nullptr){
         exercise_ = new Exercise(ui_->name_edit->text(), img_path_, ui_->instructions_edit->toPlainText(), new_tags_, this);
+        SaveImage();
         SaveExercise();
     }
     else{
@@ -105,6 +106,16 @@ void AddExerciseWindow::SaveExercise()
 
     file.write(doc.toJson());
     file.close();
+}
+
+void AddExerciseWindow::SaveImage()
+{
+    QString old_name = exercise_->name_;
+    QString new_img_name = old_name.remove(QRegExp(QString::fromUtf8("[-`~!@#$%^&*()_â€”+=|:;<>Â«Â»,.?/{}\'\"\\\[\\\]\\\\]")));
+    QString new_path = "assets/images/" + new_img_name + ".jpg";
+    exercise_->pixmap()->save(new_path);
+    exercise_->img_path_ = new_path;
+
 }
 
 void AddExerciseWindow::UpdateExercise()

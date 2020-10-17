@@ -28,6 +28,7 @@ private slots:
 private:
 
     void SaveExercise();
+    void SaveImage();
     void UpdateExercise();
     void SetCurrentTagsLabel(const QSet<QString>& tags);
 
