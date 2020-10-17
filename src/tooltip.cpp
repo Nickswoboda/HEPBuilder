@@ -17,15 +17,18 @@ Tooltip::Tooltip(QWidget *parent) : QWidget(parent)
     name_label_ = new QLabel("Name");
     name_label_->setWordWrap(true);
     name_label_->setStyleSheet("background: #B0C4DE; font-weight: bold");
+    name_label_->setFixedSize(165, 30);
 
     instruction_label_ = new QLabel("Instruction");
     instruction_label_->setWordWrap(true);
     instruction_label_->setStyleSheet("border-bottom: 0px");
+    instruction_label_->setFixedSize(165, 125);
+    instruction_label_->setAlignment(Qt::AlignTop);
 
     layout->addWidget(name_label_);
 	layout->addWidget(instruction_label_);
 
-    setFixedSize(160, 165);
+    setFixedSize(165, 160);
     hide();
 }
 
