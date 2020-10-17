@@ -45,6 +45,16 @@ void Exercise::leaveEvent(QEvent *event)
     emit Exited();
 }
 
+bool Exercise::HasTags(const QSet<QString>& tags)
+{
+    for (const auto& tag : tags){
+        if (!tags_.contains(tag)){
+            return false;
+        }
+    }
+    return true;
+}
+
 void Exercise::SaveToJson()
 {
     QFile file("assets/exercises.json");

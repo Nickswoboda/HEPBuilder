@@ -16,6 +16,8 @@ public:
     void enterEvent(QEvent* event) override;
     void leaveEvent(QEvent* event) override;
 
+    bool HasTags(const QSet<QString>& tags);
+
     void SaveToJson();
     void DeleteFromJson();
 

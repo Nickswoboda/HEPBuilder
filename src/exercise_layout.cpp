@@ -76,17 +76,12 @@ void ExerciseLayout::SearchByTags(const QSet<QString>& tags)
 {
     RemoveAllItemsFromGrid();
     for (auto& ex : exercises_){
-        bool found = true;
-        for (const auto& tag : tags){
-            if (!ex->tags_.contains(tag)){
-                ex->hide();
-                found = false;
-                break;
-            }
-        }
-        if (found){
+        if (ex->HasTags(tags)){
             ex->show();
             AddExerciseToGrid(*ex);
+        }
+        else{
+            ex->hide();
         }
     }
 }
