@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui_->save_button, SIGNAL(clicked()), this, SLOT(OnSaveButtonPressed()));
     connect(ui_->create_exercise_button, SIGNAL(clicked()), this, SLOT(OnCreateExerciseButtonPressed()));
     connect(ui_->search_button, SIGNAL(clicked()), this, SLOT(OnSearchButtonPressed()));
+    connect(ui_->search_edit, SIGNAL(returnPressed()), this, SLOT(OnSearchButtonPressed()));
     connect(ui_->reset_search_button, SIGNAL(clicked()), this, SLOT(OnResetSearchButtonPressed()));
     connect(tag_search_area_, SIGNAL(TagSearchUpdated(QSet<QString>)), exercise_layout_, SLOT(SearchByTags(const QSet<QString>&)));
     connect(ui_->clear_routine_button, SIGNAL(clicked()), routine_layout_, SLOT(Clear()));
