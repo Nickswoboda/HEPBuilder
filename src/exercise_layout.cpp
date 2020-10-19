@@ -16,13 +16,24 @@ void ExerciseLayout::AddExercise(Exercise& exercise){
 void ExerciseLayout::AddExerciseToGrid(Exercise &exercise)
 {
     exercise.add_button_->setText("+");
-    grid_->addWidget(&exercise, curr_row_, curr_col_);
-    if (curr_col_ == max_cols_){
-       ++curr_row_;
-       curr_col_ = 1;
+
+    int count = grid_->count();
+    if (count == 0){
+        grid_->addWidget(&exercise, 0,0);
     }
     else{
-        ++curr_col_;
+        //get row/col of last exercise
+        int row = 0, col = 0, r_span = 0, c_span = 0;
+        grid_->getItemPosition(grid_->count() - 1, &row, &col, &r_span, &c_span);
+
+        ++col;
+        if (col == max_cols_){
+            ++row;
+            col = 0;
+        }
+
+
+        grid_->addWidget(&exercise, row, col);
     }
 }
 void ExerciseLayout::RemoveExerciseFromGrid(Exercise &exercise)
@@ -45,18 +56,8 @@ void ExerciseLayout::RemoveExerciseFromGrid(Exercise &exercise)
 
         ++col;
         if (col == grid_->columnCount()){
-            col = 1;
+            col = 0;
             ++row;
-        }
-    }
-
-    //update so the next exercise added is placed correctly
-    --curr_col_;
-    if (curr_col_ == 0){
-        //columnCount returns 1 more than actual
-        curr_col_ = grid_->columnCount() - 1;
-        if (curr_row_ > 1){
-            --curr_row_;
         }
     }
 
@@ -68,8 +69,6 @@ void ExerciseLayout::RemoveAllItemsFromGrid()
     for (int i = 0; i < grid_->count(); ++i){
         grid_->removeWidget(grid_->itemAt(i)->widget());
     }
-    curr_row_ = 1;
-    curr_col_ = 1;
 }
 
 Exercise* ExerciseLayout::GetExerciseByName(const QString& name)
