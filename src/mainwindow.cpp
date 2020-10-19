@@ -95,8 +95,8 @@ void MainWindow::OnAddToRoutinePressed()
     Exercise* ex = static_cast<Exercise*>(sender()->parent());
 
     if (ex->parent() == exercise_layout_){
-       routine_layout_->AddExercise(*ex);
        exercise_layout_->RemoveExerciseFromGrid(*ex);
+       routine_layout_->AddExercise(*ex);
     }
     else{
        exercise_layout_->AddExercise(*ex);
