@@ -12,12 +12,12 @@ ExerciseLayout::ExerciseLayout(QWidget* parent)
 void ExerciseLayout::AddExercise(Exercise& exercise){
     exercises_[exercise.name_] = &exercise;
     AddExerciseToGrid(exercise);
+    exercise.add_button_->setText("+");
+    exercise.edit_button_->show();
 }
 
 void ExerciseLayout::AddExerciseToGrid(Exercise &exercise)
 {
-    exercise.add_button_->setText("+");
-
     int count = grid_->count();
     if (count == 0){
         grid_->addWidget(&exercise, 0,0);

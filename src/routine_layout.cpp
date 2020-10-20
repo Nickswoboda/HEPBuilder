@@ -15,6 +15,7 @@ RoutineLayout::RoutineLayout(QWidget *parent) : QWidget(parent)
 void RoutineLayout::AddExercise(Exercise& exercise){
    h_box_->addWidget(&exercise);
    exercise.add_button_->setText("-");
+   exercise.edit_button_->hide();
 }
 
 std::vector<Exercise*> RoutineLayout::GetExercises()
