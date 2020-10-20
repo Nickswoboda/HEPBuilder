@@ -148,4 +148,5 @@ void MainWindow::OnSearchButtonPressed()
 void MainWindow::OnResetSearchButtonPressed()
 {
     exercise_layout_->SearchByName("");
+    ui_->search_edit->setText("");
 }
