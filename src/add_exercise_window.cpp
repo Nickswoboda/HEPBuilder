@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QMessageBox>
 
 #include "exercise.h"
 #include "add_tags_window.h"
@@ -117,8 +118,12 @@ void AddExerciseWindow::OnEditTagsButtonPressed()
 
 void AddExerciseWindow::OnDeleteButtonPressed()
 {
-    emit DeleteButtonPressed(*exercise_);
-    QDialog::done(QDialog::Rejected);
+    if (QMessageBox::warning(this, "Delete Exercise", "Are you sure you want to delete this exercise?", QMessageBox::Ok | QMessageBox::Cancel)
+        == QMessageBox::Ok){
+
+        emit DeleteButtonPressed(*exercise_);
+        QDialog::done(QDialog::Rejected);
+    }
 }
 
 void AddExerciseWindow::SetCurrentTagsLabel(const QSet<QString>& tags)
