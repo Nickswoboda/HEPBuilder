@@ -17,10 +17,10 @@
    <widget class="QScrollArea" name="exercise_area">
     <property name="geometry">
      <rect>
-      <x>220</x>
+      <x>240</x>
       <y>0</y>
-      <width>1061</width>
-      <height>501</height>
+      <width>1041</width>
+      <height>511</height>
      </rect>
     </property>
     <property name="verticalScrollBarPolicy">
@@ -37,8 +37,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>1042</width>
-       <height>499</height>
+       <width>1022</width>
+       <height>509</height>
       </rect>
      </property>
     </widget>
@@ -46,10 +46,10 @@
    <widget class="QScrollArea" name="routine_area">
     <property name="geometry">
      <rect>
-      <x>220</x>
-      <y>510</y>
-      <width>941</width>
-      <height>161</height>
+      <x>240</x>
+      <y>520</y>
+      <width>921</width>
+      <height>171</height>
      </rect>
     </property>
     <property name="horizontalScrollBarPolicy">
@@ -63,8 +63,8 @@
       <rect>
        <x>0</x>
        <y>0</y>
-       <width>939</width>
-       <height>142</height>
+       <width>919</width>
+       <height>152</height>
       </rect>
      </property>
     </widget>
@@ -73,9 +73,9 @@
     <property name="geometry">
      <rect>
       <x>1170</x>
-      <y>510</y>
+      <y>520</y>
       <width>101</width>
-      <height>161</height>
+      <height>171</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="button_area">
@@ -89,21 +89,21 @@
      <item>
       <widget class="QPushButton" name="load_button">
        <property name="text">
-        <string>Load</string>
+        <string>Load Routine</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="save_button">
        <property name="text">
-        <string>Save</string>
+        <string>Save Routine</string>
        </property>
       </widget>
      </item>
      <item>
       <widget class="QPushButton" name="clear_routine_button">
        <property name="text">
-        <string>Clear</string>
+        <string>Clear Routine</string>
        </property>
       </widget>
      </item>
@@ -121,7 +121,7 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>211</width>
+      <width>221</width>
       <height>101</height>
      </rect>
     </property>
@@ -138,7 +138,7 @@
         </sizepolicy>
        </property>
        <property name="text">
-        <string>Search by Name:</string>
+        <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Search by Name:&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
@@ -169,8 +169,8 @@
      <rect>
       <x>10</x>
       <y>140</y>
-      <width>211</width>
-      <height>531</height>
+      <width>221</width>
+      <height>551</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="search_by_tag_layout"/>
@@ -180,12 +180,12 @@
      <rect>
       <x>70</x>
       <y>120</y>
-      <width>81</width>
+      <width>91</width>
       <height>20</height>
      </rect>
     </property>
     <property name="text">
-     <string>Search by Tag: </string>
+     <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-weight:600;&quot;&gt;Search by Tag: &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
     </property>
    </widget>
   </widget>

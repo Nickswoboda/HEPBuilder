@@ -18,11 +18,15 @@ Exercise::Exercise(const QString& name, const QString& img_path, const QString& 
     setFixedSize(130, 130);
     setScaledContents(true);
     setPixmap(img);
+    setStyleSheet("border: 1px solid black");
 
     add_button_ = new QPushButton(this);
-    add_button_->setGeometry(0, 0, 20, 20);
+    add_button_->setGeometry(2, 2, 20, 20);
+    add_button_->setStyleSheet("border: 1px solid gray; background: rgba(240,240,240, 150); font-weight: bold");
+    add_button_->setFlat(true);
     edit_button_ = new QPushButton("Edit", this);
-    edit_button_->setGeometry(20, 0, 40, 20);
+    edit_button_->setStyleSheet("border: 1px solid gray; background: rgba(240,240,240, 150)");
+    edit_button_->setGeometry(23, 2, 40, 20);
 
 }
 

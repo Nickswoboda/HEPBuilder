@@ -5,6 +5,7 @@ ExerciseLayout::ExerciseLayout(QWidget* parent)
 {
     grid_ = new QGridLayout(this);
     grid_->setAlignment(Qt::AlignTop | Qt::AlignLeft);
+    grid_->setSpacing(16);
     setLayout(grid_);
 }
 

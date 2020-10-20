@@ -25,7 +25,7 @@ public slots:
 private:
     QGridLayout* grid_;
     QHash<QString, Exercise*> exercises_;
-    const int max_cols_ = 8;
+    const int max_cols_ = 7;
 
 };
 

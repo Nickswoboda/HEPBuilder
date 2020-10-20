@@ -8,6 +8,7 @@
 RoutineLayout::RoutineLayout(QWidget *parent) : QWidget(parent)
 {
     h_box_ = new QHBoxLayout(this);
+    h_box_->setAlignment(Qt::AlignLeft);
     setLayout(h_box_);
 }
 
