@@ -66,8 +66,10 @@ void ExerciseLayout::RemoveExerciseFromGrid(Exercise &exercise)
 
 void ExerciseLayout::RemoveAllItemsFromGrid()
 {
-    for (int i = 0; i < grid_->count(); ++i){
-        grid_->removeWidget(grid_->itemAt(i)->widget());
+    while(!grid_->isEmpty()){
+        auto exercise = grid_->itemAt(0)->widget();
+        exercise->hide();
+        grid_->removeWidget(exercise);
     }
 }
 
@@ -82,16 +84,11 @@ Exercise* ExerciseLayout::GetExerciseByName(const QString& name)
 
 void ExerciseLayout::SearchByName(const QString& name)
 {
-    //Need to remove all items then place them back in if they fit criteria
-    //if not there will be a gap between exercises where the hidden ones were
     RemoveAllItemsFromGrid();
     for (auto& ex : exercises_){
         if (ex->name_.contains(name, Qt::CaseInsensitive)){
-            ex->show();
             AddExerciseToGrid(*ex);
-        }
-        else{
-            ex->hide();
+            ex->show();
         }
     }
 
@@ -102,11 +99,8 @@ void ExerciseLayout::SearchByTags(const QSet<QString>& tags)
     RemoveAllItemsFromGrid();
     for (auto& ex : exercises_){
         if (ex->HasTags(tags)){
+            grid_->addWidget(ex);
             ex->show();
-            AddExerciseToGrid(*ex);
-        }
-        else{
-            ex->hide();
         }
     }
 }
