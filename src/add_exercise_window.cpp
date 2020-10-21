@@ -104,6 +104,10 @@ void AddExerciseWindow::UpdateExercise()
         exercise_->DeleteFromJson();
     }
 
+    //refresh exercise image
+    QPixmap img(img_path_);
+    exercise_->setPixmap(img);
+
     exercise_->name_ = ui_->name_edit->text();
     exercise_->img_path_ = img_path_;
     exercise_->instruction_ = ui_->instructions_edit->toPlainText();
