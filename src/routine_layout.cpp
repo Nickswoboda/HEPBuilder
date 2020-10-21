@@ -4,6 +4,7 @@
 #include <QJsonObject>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QMessageBox>
 
 RoutineLayout::RoutineLayout(QWidget *parent) : QWidget(parent)
 {
@@ -16,6 +17,11 @@ void RoutineLayout::AddExercise(Exercise& exercise){
    h_box_->addWidget(&exercise);
    exercise.add_button_->setText("-");
    exercise.edit_button_->hide();
+}
+
+bool RoutineLayout::IsEmpty()
+{
+   return h_box_->isEmpty();
 }
 
 std::vector<Exercise*> RoutineLayout::GetExercises()
@@ -38,7 +44,10 @@ void RoutineLayout::SaveRoutine(const QString& name)
     //load json if it already exists
     QFile file("assets/routines.json");
     if (file.exists()){
-        file.open(QIODevice::ReadOnly);
+        if (!file.open(QIODevice::ReadOnly)){
+            QMessageBox::warning(this, "Unable to open file", "Could not open routines.json file");
+        }
+
         QByteArray data = file.readAll();
         doc = QJsonDocument::fromJson(data);
         obj = doc.object();
@@ -54,7 +63,9 @@ void RoutineLayout::SaveRoutine(const QString& name)
     obj[name] = arr;
 
     //write json back to file
-    file.open(QIODevice::WriteOnly);
+    if (file.open(QIODevice::WriteOnly)){
+        QMessageBox::warning(this, "Unable to open file", "Could not open routines.json file");
+    }
     doc.setObject(obj);
     file.write(doc.toJson());
     file.close();

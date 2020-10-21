@@ -7,6 +7,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QMessageBox>
 
 TagSearchArea::TagSearchArea(QWidget *parent) : QWidget(parent)
 {
@@ -46,7 +47,10 @@ TagSearchArea::TagSearchArea(QWidget *parent) : QWidget(parent)
 void TagSearchArea::SetUpCheckboxes()
 {
     QFile file("assets/tags.json");
-    file.open(QIODevice::ReadOnly);
+
+    if (!file.open(QIODevice::ReadOnly)){
+        QMessageBox::warning(this, "Unable to open file", "Could not open tags.json file. Tag searching will be unavailable.");
+    }
 
     QByteArray data = file.readAll();
     file.close();

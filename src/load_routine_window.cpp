@@ -4,6 +4,7 @@
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QMessageBox>
 
 LoadRoutineWindow::LoadRoutineWindow(ExerciseLayout& exercise_layout, RoutineLayout& routine_layout, QWidget *parent) :
     QDialog(parent), ui_(new Ui::LoadRoutineWindow), exercise_layout_(exercise_layout), routine_layout_(routine_layout)
@@ -28,6 +29,7 @@ void LoadRoutineWindow::LoadRoutineNames()
     QFile file("assets/routines.json");
 
     if (!file.open(QIODevice::ReadOnly)){
+        QMessageBox::warning(this, "Unable to open file", "Could not load routines from routines.json file.");
         return;
     }
 
@@ -52,7 +54,10 @@ void LoadRoutineWindow::OnLoadButtonPressed()
 
     for (auto item : routine){
         Exercise* ex = exercise_layout_.GetExerciseByName(item.toString());
-        if (ex){
+        if (ex == nullptr){
+            QMessageBox::warning(this, "Unable to load exercise", "Could not load exercise" + item.toString() + ". The exercise may have been renamed or deleted.");
+        }
+        else{
             exercise_layout_.RemoveExerciseFromGrid(*ex);
             routine_layout_.AddExercise(*ex);
         }
@@ -75,6 +80,7 @@ void LoadRoutineWindow::OnDeleteButtonPressed()
 
     QFile file("assets/routines.json");
     if (!file.open(QIODevice::WriteOnly)){
+        QMessageBox::warning(this, "Unable to open file", "Could not open routines.json file.");
         return;
     }
 

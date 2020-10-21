@@ -13,6 +13,7 @@ public:
     virtual ~RoutineLayout() {}
 
     void AddExercise(Exercise& exercise);
+    bool IsEmpty();
     std::vector<Exercise*> GetExercises();
 public slots:
     void SaveRoutine(const QString& name);

@@ -60,11 +60,9 @@ void MainWindow::OnExerciseEntered()
 void MainWindow::LoadExercises()
 {
     QFile file("assets/exercises.json");
-    if (!file.exists()){
-        return;
+    if (!file.open(QIODevice::ReadOnly)){
+        QMessageBox::warning(this, "Unable to open file", "Could not load exercises from exercises.json file.");
     }
-
-    file.open(QIODevice::ReadOnly);
 
     QByteArray data = file.readAll();
     QJsonDocument doc(QJsonDocument::fromJson(data));
@@ -105,6 +103,11 @@ void MainWindow::OnAddToRoutinePressed()
 
 void MainWindow::OnPreviewButtonPressed()
 {
+    if (routine_layout_->IsEmpty()){
+        QMessageBox::information(this, "No exercises to preview", "There are no exercises in the routine to preview.");
+        return;
+    }
+
     std::vector<Exercise*> routine_exercises = routine_layout_->GetExercises();
     PreviewWindow preview(routine_exercises, this);
     preview.exec();
@@ -112,6 +115,11 @@ void MainWindow::OnPreviewButtonPressed()
 
 void MainWindow::OnSaveButtonPressed()
 {
+    if (routine_layout_->IsEmpty()){
+        QMessageBox::information(this, "No exercises to save", "There are no exercises in the routine to save.");
+        return;
+    }
+
     SaveRoutineWindow save_window(*routine_layout_, this);
     save_window.exec();
 }

@@ -64,6 +64,7 @@ void Exercise::SaveToJson()
     QFile file("assets/exercises.json");
 
     if (!file.open(QIODevice::ReadOnly)){
+        QMessageBox::warning(this, "Unable to open file", "Could not open exercises.json file");
         return;
     }
 
@@ -86,6 +87,7 @@ void Exercise::SaveToJson()
     doc = QJsonDocument(obj);
 
     if (!file.open(QIODevice::WriteOnly)){
+        QMessageBox::warning(this, "Unable to open file", "Could not save exercise to exercises.json file");
         return;
     }
 
@@ -97,6 +99,7 @@ void Exercise::DeleteFromJson()
 {
     QFile file("assets/exercises.json");
     if (!file.open(QIODevice::ReadOnly)){
+        QMessageBox::warning(this, "Unable to open file", "Could not delete exercise from exercises.json file");
         return;
     }
 

@@ -51,6 +51,7 @@ void AddExerciseWindow::OnAddImageButtonPressed()
 
     QPixmap img(img_path_);
     if (img.isNull()){
+        QMessageBox::warning(this, "Unable to loading image", "Unable to load: " + img_path_ + ".");
         return;
     }
 
@@ -59,9 +60,15 @@ void AddExerciseWindow::OnAddImageButtonPressed()
 
 void AddExerciseWindow::OnAcceptButtonPressed()
 {
-    if (img_path_.isNull()) return;
-    if (ui_->name_edit->text().isEmpty()) return;
-    if (ui_->instructions_edit->toPlainText().isEmpty()) return;
+    QString error_msg;
+    if (img_path_.isNull()) error_msg = "Exercise must have an image.";
+    else if (ui_->name_edit->text().isEmpty()) error_msg = "Exercise must have a name.";
+    else if (ui_->instructions_edit->toPlainText().isEmpty()) error_msg = "Exercise must have instructions.";
+
+    if (!error_msg.isEmpty()){
+        QMessageBox::warning(this, "Unable to save exercise", error_msg);
+        return;
+    }
 
     if (exercise_ == nullptr){
         exercise_ = new Exercise(ui_->name_edit->text(), img_path_, ui_->instructions_edit->toPlainText(), new_tags_, this);

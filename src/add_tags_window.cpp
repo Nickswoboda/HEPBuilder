@@ -5,6 +5,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QMessageBox>
 
 AddTagsWindow::AddTagsWindow(const QSet<QString> &tags, QWidget *parent) :
     QDialog(parent),
@@ -30,7 +31,11 @@ AddTagsWindow::~AddTagsWindow()
 void AddTagsWindow::LoadTagsFromJson()
 {
     QFile file("assets/tags.json");
-    file.open(QIODevice::ReadOnly);
+    if (!file.open(QIODevice::ReadOnly)){
+        QMessageBox::warning(this, "Unable to load file", "Could not load tags.json file.");
+        done(QDialog::Rejected);
+        return;
+    }
     QByteArray data = file.readAll();
     file.close();
     QJsonDocument doc(QJsonDocument::fromJson(data));
