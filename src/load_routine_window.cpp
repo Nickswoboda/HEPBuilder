@@ -63,6 +63,7 @@ void LoadRoutineWindow::OnLoadButtonPressed()
         }
 
     }
+    done(QDialog::Accepted);
 }
 
 void LoadRoutineWindow::OnCancelButtonPressed()
