@@ -36,7 +36,7 @@ std::vector<Exercise*> RoutineLayout::GetExercises()
     return exercises;
 }
 
-void RoutineLayout::SaveRoutine(const QString& name)
+bool RoutineLayout::SaveRoutine(const QString& name)
 {
     QJsonDocument doc;
     QJsonObject obj;
@@ -47,11 +47,18 @@ void RoutineLayout::SaveRoutine(const QString& name)
         if (!file.open(QIODevice::ReadOnly)){
             QMessageBox::warning(this, "Unable to open file", "Could not open routines.json file");
         }
+        else{
+            QByteArray data = file.readAll();
+            doc = QJsonDocument::fromJson(data);
+            obj = doc.object();
+            file.close();
 
-        QByteArray data = file.readAll();
-        doc = QJsonDocument::fromJson(data);
-        obj = doc.object();
-        file.close();
+            //do not save if a routine already exists with this name
+            if (obj.contains(name)){
+                QMessageBox::warning(this, "Unable to save routine", "A routine already exists with this name.");
+                return false;
+            }
+        }
     }
 
     //add json entry for routine
@@ -63,12 +70,14 @@ void RoutineLayout::SaveRoutine(const QString& name)
     obj[name] = arr;
 
     //write json back to file
-    if (file.open(QIODevice::WriteOnly)){
+    if (!file.open(QIODevice::WriteOnly)){
         QMessageBox::warning(this, "Unable to open file", "Could not open routines.json file");
+        return false;
     }
     doc.setObject(obj);
     file.write(doc.toJson());
-    file.close();
+
+    return true;
 }
 
 void RoutineLayout::Clear()

@@ -16,7 +16,7 @@ public:
     bool IsEmpty();
     std::vector<Exercise*> GetExercises();
 public slots:
-    void SaveRoutine(const QString& name);
+    bool SaveRoutine(const QString& name);
     void Clear();
 
 private:
