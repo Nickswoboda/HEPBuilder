@@ -7,6 +7,9 @@ ExerciseCard::ExerciseCard(const Exercise& exercise, QWidget *parent) : QWidget(
     ui_.image->setScaledContents(true);
     ui_.image->setPixmap(*(exercise.pixmap()));
 
-    ui_.text->setText(exercise.name_ + "\n\n" + exercise.instruction_);
+    ui_.name_label->setText(exercise.name_);
+    ui_.instruction_label->setText(exercise.instruction_);
+
+    ui_.text_layout->setAlignment(Qt::AlignTop);
 
 }

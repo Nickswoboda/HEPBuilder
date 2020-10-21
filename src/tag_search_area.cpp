@@ -29,16 +29,16 @@ TagSearchArea::TagSearchArea(QWidget *parent) : QWidget(parent)
     grid->addLayout(equipment_tags_, 1, 1, Qt::AlignTop);
 
     QLabel* body_part = new QLabel("Body Part", this);
-    body_part->setStyleSheet("font-weight: bold");
+    body_part->setStyleSheet("font-weight: bold; text-decoration: underline");
     body_part_tags_->addWidget(body_part);
     QLabel* type = new QLabel("Type", this);
-    type->setStyleSheet("font-weight: bold");
+    type->setStyleSheet("font-weight: bold; text-decoration: underline");
     type_tags_->addWidget(type);
     QLabel* movement = new QLabel("Movement", this);
-    movement->setStyleSheet("font-weight: bold");
+    movement->setStyleSheet("font-weight: bold; text-decoration: underline");
     movement_tags_->addWidget(movement);
     QLabel* equipment = new QLabel("Equipment", this);
-    equipment->setStyleSheet("font-weight: bold");
+    equipment->setStyleSheet("font-weight: bold; text-decoration: underline");
     equipment_tags_->addWidget(equipment);
 
     SetUpCheckboxes();
