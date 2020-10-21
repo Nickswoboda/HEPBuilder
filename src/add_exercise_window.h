@@ -31,6 +31,7 @@ private:
     void SaveImage();
     void UpdateExercise();
     void SetCurrentTagsLabel(const QSet<QString>& tags);
+    bool IsNameTaken();
 
     Ui::AddExerciseWindow *ui_;
     QString img_path_;

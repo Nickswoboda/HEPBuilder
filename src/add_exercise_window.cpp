@@ -71,6 +71,10 @@ void AddExerciseWindow::OnAcceptButtonPressed()
     }
 
     if (exercise_ == nullptr){
+        if (IsNameTaken()){
+            QMessageBox::warning(this, "Unable to save exercise", "An exercise already exists by that name.");
+            return;
+        }
         exercise_ = new Exercise(ui_->name_edit->text(), img_path_, ui_->instructions_edit->toPlainText(), new_tags_, this);
         SaveImage();
         exercise_->SaveToJson();
@@ -148,6 +152,28 @@ void AddExerciseWindow::SetCurrentTagsLabel(const QSet<QString>& tags)
     text.chop(2);
 
     ui_->current_tags_label->setText(text);
+}
+
+bool AddExerciseWindow::IsNameTaken()
+{
+    QFile file("assets/exercises.json");
+    //file may not exist if adding exercise for the first time
+    if (!file.exists()) return false;
+
+    if (!file.open(QIODevice::ReadOnly)){
+        QMessageBox::warning(this, "Unable to load file", "Could not open exercises.json file.");
+        return true;
+    }
+
+    QByteArray data = file.readAll();
+    QJsonDocument doc(QJsonDocument::fromJson(data));
+    QJsonObject obj = doc.object();
+
+    if (obj.contains(ui_->name_edit->text())){
+        return true;
+    }
+
+    return false;
 }
 
 
