@@ -64,6 +64,9 @@ add_executable(HEPDesigner
     src/tag_search_area.h
 )
 
+if (CMAKE_BUILD_TYPE STREQUAL "Release")
+    set_property(TARGET HEPDesigner PROPERTY WIN32_EXECUTABLE true)
+endif()
 
 target_link_libraries(HEPDesigner PRIVATE
     Qt${QT_VERSION_MAJOR}::Widgets
