@@ -36,13 +36,23 @@ void PreviewWindow::OnPrintPressed()
 
 void PreviewWindow::DrawPrintPreview(QPrinter* printer)
 {
+    printer->setColorMode(QPrinter::GrayScale);
+
     QPainter painter(printer);
     painter.translate(50, 25);
     painter.setPen(QPen(Qt::gray, 4));
 
-    const int ex_per_page = 4;
+    const int ex_per_page = 5;
+    int ex_on_page = 0;
 
     for (int i = 0; i < v_box_->count(); ++i){
+        if (ex_on_page == ex_per_page){
+            printer->newPage();
+        //move painter back to top of page
+            painter.translate(0, -190 * 5);
+            ex_on_page = 0;
+        }
+
         ExerciseCard* card = static_cast<ExerciseCard*>(v_box_->itemAt(i)->widget());
         PrintCard print_card(*card, this);
         print_card.render(&painter);
@@ -50,10 +60,7 @@ void PreviewWindow::DrawPrintPreview(QPrinter* printer)
         painter.translate(0, 185);
         painter.drawLine(0, 0, 650, 0);
         painter.translate(0, 5);
-        if (i == ex_per_page){
-            printer->newPage();
-        //move painter back to top of page
-            painter.translate(0, -190 * 5);
-        }
+
+        ++ex_on_page;
     }
 }
