@@ -6,6 +6,7 @@
 #include "routine_layout.h"
 
 #include <QJsonObject>
+#include <QListWidgetItem>
 
 namespace Ui {
 class LoadRoutineWindow;
@@ -20,11 +21,14 @@ public:
     ~LoadRoutineWindow();
 
     void LoadRoutineNames();
+    void LoadRoutine(const QString& name);
 
 private slots:
     void OnLoadButtonPressed();
     void OnCancelButtonPressed();
     void OnDeleteButtonPressed();
+
+    void OnItemDoubleClicked(QListWidgetItem*);
 
 private:
     Ui::LoadRoutineWindow *ui_;

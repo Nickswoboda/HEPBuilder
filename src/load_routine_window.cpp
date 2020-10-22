@@ -17,6 +17,8 @@ LoadRoutineWindow::LoadRoutineWindow(ExerciseLayout& exercise_layout, RoutineLay
     connect(ui_->load_button, SIGNAL(clicked()), this, SLOT(OnLoadButtonPressed()));
     connect(ui_->cancel_button, SIGNAL(clicked()), this, SLOT(OnCancelButtonPressed()));
     connect(ui_->delete_button, SIGNAL(clicked()), this, SLOT(OnDeleteButtonPressed()));
+
+    connect(ui_->routine_list, SIGNAL(itemDoubleClicked(QListWidgetItem*)), this, SLOT(OnItemDoubleClicked(QListWidgetItem*)));
 }
 
 LoadRoutineWindow::~LoadRoutineWindow()
@@ -42,12 +44,8 @@ void LoadRoutineWindow::LoadRoutineNames()
     }
 }
 
-void LoadRoutineWindow::OnLoadButtonPressed()
+void LoadRoutineWindow::LoadRoutine(const QString &name)
 {
-    auto selection = ui_->routine_list->selectedItems();
-    if (selection.empty()) return;
-
-    QString name = selection[0]->text();
     QJsonArray routine = json_obj_[name].toArray();
 
     routine_layout_.Clear();
@@ -64,6 +62,15 @@ void LoadRoutineWindow::OnLoadButtonPressed()
 
     }
     done(QDialog::Accepted);
+
+}
+
+void LoadRoutineWindow::OnLoadButtonPressed()
+{
+    auto selection = ui_->routine_list->selectedItems();
+    if (selection.empty()) return;
+
+    LoadRoutine(selection[0]->text());
 }
 
 void LoadRoutineWindow::OnCancelButtonPressed()
@@ -87,4 +94,9 @@ void LoadRoutineWindow::OnDeleteButtonPressed()
 
     QJsonDocument doc(json_obj_);
     file.write(doc.toJson());
+}
+
+void LoadRoutineWindow::OnItemDoubleClicked(QListWidgetItem* item)
+{
+    LoadRoutine(item->text());
 }
