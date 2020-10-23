@@ -96,6 +96,9 @@ void AddExerciseWindow::SaveImage()
     QString old_name = exercise_->name_;
     QString new_img_name = old_name.remove(QRegExp(QString::fromUtf8("[-`~!@#$%^&*()_â€”+=|:;<>Â«Â»,.?/{}\'\"\\\[\\\]\\\\]")));
     QString new_path = "assets/images/" + new_img_name + ".jpg";
+
+    //delete if already exists
+    QFile::remove(new_path);
     exercise_->pixmap()->save(new_path);
     exercise_->img_path_ = new_path;
 
@@ -109,11 +112,15 @@ void AddExerciseWindow::UpdateExercise()
     }
 
     //refresh exercise image
-    QPixmap img(img_path_);
-    exercise_->setPixmap(img);
+
+    if (exercise_->img_path_ != img_path_){
+        QPixmap img(img_path_);
+        exercise_->setPixmap(img);
+
+        SaveImage();
+    }
 
     exercise_->name_ = ui_->name_edit->text();
-    exercise_->img_path_ = img_path_;
     exercise_->instruction_ = ui_->instructions_edit->toPlainText();
     exercise_->tags_ = new_tags_;
 
