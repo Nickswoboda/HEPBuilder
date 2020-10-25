@@ -12,8 +12,6 @@ LoadRoutineWindow::LoadRoutineWindow(ExerciseLayout& exercise_layout, RoutineLay
     setWindowFlags(windowFlags() & ~Qt::WindowContextHelpButtonHint);
     ui_->setupUi(this);
 
-    LoadRoutineNames();
-
     connect(ui_->load_button, SIGNAL(clicked()), this, SLOT(OnLoadButtonPressed()));
     connect(ui_->cancel_button, SIGNAL(clicked()), this, SLOT(OnCancelButtonPressed()));
     connect(ui_->delete_button, SIGNAL(clicked()), this, SLOT(OnDeleteButtonPressed()));
@@ -26,13 +24,13 @@ LoadRoutineWindow::~LoadRoutineWindow()
     delete ui_;
 }
 
-void LoadRoutineWindow::LoadRoutineNames()
+bool LoadRoutineWindow::LoadRoutineNames()
 {
     QFile file("assets/routines.json");
 
     if (!file.open(QIODevice::ReadOnly)){
-        QMessageBox::warning(this, "Unable to open file", "Could not load routines from routines.json file.");
-        return;
+        QMessageBox::warning(this, "Unable to open file", "Could not load routines from routines.json file.\n There are no routines to load.");
+        return false;
     }
 
     QByteArray data = file.readAll();
@@ -42,6 +40,8 @@ void LoadRoutineWindow::LoadRoutineNames()
     for (auto& key : json_obj_.keys()){
         ui_->routine_list->addItem(key);
     }
+
+    return true;
 }
 
 void LoadRoutineWindow::LoadRoutine(const QString &name)

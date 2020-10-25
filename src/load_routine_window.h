@@ -20,7 +20,7 @@ public:
     explicit LoadRoutineWindow(ExerciseLayout& exercise_layout, RoutineLayout& routine_layout, QWidget *parent = nullptr);
     ~LoadRoutineWindow();
 
-    void LoadRoutineNames();
+    bool LoadRoutineNames();
     void LoadRoutine(const QString& name);
 
 private slots:

@@ -127,7 +127,10 @@ void MainWindow::OnSaveButtonPressed()
 void MainWindow::OnLoadButtonPressed()
 {
     LoadRoutineWindow load_window(*exercise_layout_, *routine_layout_, this);
-    load_window.exec();
+    //if routine names did not load, then there is no point showing empty list
+    if (load_window.LoadRoutineNames()){
+        load_window.exec();
+    }
 }
 
 void MainWindow::OnCreateExerciseButtonPressed()
