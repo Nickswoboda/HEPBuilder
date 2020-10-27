@@ -100,7 +100,7 @@ void ExerciseLayout::SearchByTags(const QSet<QString>& tags)
     RemoveAllItemsFromGrid();
     for (auto& ex : exercises_){
         if (ex->HasTags(tags)){
-            grid_->addWidget(ex);
+            AddExerciseToGrid(*ex);
             ex->show();
         }
     }
