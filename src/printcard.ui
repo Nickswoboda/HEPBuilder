@@ -52,6 +52,12 @@
      <layout class="QVBoxLayout" name="text_layout">
       <item>
        <widget class="QLabel" name="name_label">
+        <property name="minimumSize">
+         <size>
+          <width>390</width>
+          <height>0</height>
+         </size>
+        </property>
         <property name="maximumSize">
          <size>
           <width>350</width>
@@ -77,7 +83,7 @@
        <widget class="QLabel" name="instruction_label">
         <property name="minimumSize">
          <size>
-          <width>350</width>
+          <width>390</width>
           <height>145</height>
          </size>
         </property>

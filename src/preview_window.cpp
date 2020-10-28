@@ -3,6 +3,8 @@
 #include <QtPrintSupport/QPrintPreviewDialog>
 #include <QPainter>
 #include <iostream>
+#include <QRect>
+#include <QScreen>
 
 #include "exercise_card.h"
 #include "print_card.h"
@@ -29,38 +31,51 @@ PreviewWindow::PreviewWindow(const std::vector<Exercise*>& exercises, QWidget* p
 
 void PreviewWindow::OnPrintPressed()
 {
-    QPrintPreviewDialog preview(this);
+    QPrinter printer(QPrinter::HighResolution);
+    printer.setColorMode(QPrinter::GrayScale);
+    printer.setPageMargins(16,16,16,16, QPrinter::Millimeter);
+
+    QPrintPreviewDialog preview(&printer, this);
     connect(&preview, SIGNAL(paintRequested(QPrinter*)), this, SLOT(DrawPrintPreview(QPrinter*)));
     preview.exec();
 }
 
 void PreviewWindow::DrawPrintPreview(QPrinter* printer)
 {
-    printer->setColorMode(QPrinter::GrayScale);
-
     QPainter painter(printer);
-    painter.translate(50, 25);
+
+    //scale widget to printer resolution
+    //700 is the size of the printcard
+    qreal x_scale = printer->pageRect().width() / 700.0;
+    painter.scale(x_scale, x_scale);
     painter.setPen(QPen(Qt::gray, 4));
+    //save initial position at top of page
+    painter.save();
 
     const int ex_per_page = 5;
     int ex_on_page = 0;
 
     for (int i = 0; i < v_box_->count(); ++i){
-        if (ex_on_page == ex_per_page){
-            printer->newPage();
-        //move painter back to top of page
-            painter.translate(0, -190 * 5);
-            ex_on_page = 0;
-        }
 
         ExerciseCard* card = static_cast<ExerciseCard*>(v_box_->itemAt(i)->widget());
         PrintCard print_card(*card, this);
         print_card.render(&painter);
-        //draw borderline
-        painter.translate(0, 185);
-        painter.drawLine(0, 0, 650, 0);
-        painter.translate(0, 5);
-
         ++ex_on_page;
+
+        if (ex_on_page == ex_per_page){
+            printer->newPage();
+            //move painter back to top of page and save again for next page
+            painter.restore();
+            painter.save();
+            ex_on_page = 0;
+        }
+        //don't draw border on last exercise of routine
+        else if (i != v_box_->count() - 1){
+            //draw borderline
+            painter.translate(0, 185);
+            painter.drawLine(0, 0, 700, 0);
+            painter.translate(0, 5);
+        }
+
     }
 }
