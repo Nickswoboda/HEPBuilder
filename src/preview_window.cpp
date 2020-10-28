@@ -57,25 +57,25 @@ void PreviewWindow::DrawPrintPreview(QPrinter* printer)
 
     for (int i = 0; i < v_box_->count(); ++i){
 
-        ExerciseCard* card = static_cast<ExerciseCard*>(v_box_->itemAt(i)->widget());
-        PrintCard print_card(*card, this);
-        print_card.render(&painter);
-        ++ex_on_page;
-
-        if (ex_on_page == ex_per_page){
+        if (ex_on_page == ex_per_page ){
             printer->newPage();
             //move painter back to top of page and save again for next page
             painter.restore();
             painter.save();
             ex_on_page = 0;
         }
-        //don't draw border on last exercise of routine
-        else if (i != v_box_->count() - 1){
+        else if (ex_on_page != 0){
             //draw borderline
-            painter.translate(0, 185);
             painter.drawLine(0, 0, 700, 0);
             painter.translate(0, 5);
         }
+
+        ExerciseCard* card = static_cast<ExerciseCard*>(v_box_->itemAt(i)->widget());
+        PrintCard print_card(*card, this);
+        print_card.render(&painter);
+        ++ex_on_page;
+        painter.translate(0, 185);
+
 
     }
 }
