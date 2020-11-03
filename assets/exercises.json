@@ -43,12 +43,57 @@
             "Extension"
         ]
     },
+    "CERVICAL EXTENSION": {
+        "img path": "assets/images/CERVICAL EXTENSION.jpg",
+        "instruction": "Tilt your head upwards and then return to starting position.",
+        "tags": [
+            "AROM",
+            "Neck",
+            "Extension"
+        ]
+    },
+    "CERVICAL FLEXION": {
+        "img path": "assets/images/CERVICAL FLEXION.jpg",
+        "instruction": "Tilt your head foward and then return to starting position.",
+        "tags": [
+            "Flexion",
+            "AROM",
+            "Neck"
+        ]
+    },
     "CERVICAL RETRATION": {
         "img path": "assets/images/CERVICAL RETRATION.jpg",
         "instruction": "While standing straight, bring your neck back until your ears line up with your shoulders.",
         "tags": [
             "Neck",
             "Strength"
+        ]
+    },
+    "CERVICAL ROTATION": {
+        "img path": "assets/images/CERVICAL ROTATION.jpg",
+        "instruction": "While keeping your chin up in a neutral position, turn your head side to side.",
+        "tags": [
+            "Neck",
+            "Rotation (Cervical)",
+            "AROM"
+        ]
+    },
+    "CERVICAL SIDE BEND": {
+        "img path": "assets/images/CERVICAL SIDE BEND.jpg",
+        "instruction": "While looking forward the entire time, bring your head to the side, then to the other side.",
+        "tags": [
+            "Neck",
+            "Lateral Flexion",
+            "AROM"
+        ]
+    },
+    "DEAD BUGS": {
+        "img path": "assets/images/DEAD BUGS.jpg",
+        "instruction": "Lie on your back with your arms pointing towards the ceiling and your hips and knees bent. Slowly straighten out one of your legs while bringing the opposite arm overhead. Return to starting position before repeating on the other side.",
+        "tags": [
+            "Strength",
+            "Back",
+            "Abdominal"
         ]
     },
     "ELASTIC BAND: DORSIFLEXION": {
@@ -158,6 +203,16 @@
             "Flexion"
         ]
     },
+    "LEVATOR SCAP STRETCH": {
+        "img path": "assets/images/LEVATOR SCAP STRETCH.jpg",
+        "instruction": "With the arm of the affect side behind your back, bring your head towards the opposite side armpit and hold.",
+        "tags": [
+            "Flexion",
+            "Neck",
+            "Flexibility",
+            "PROM"
+        ]
+    },
     "LONG ARC QUADS": {
         "img path": "assets/images/LONG ARC QUADS.jpg",
         "instruction": "While seated with knees bent, straighten your knee and point your toes up.",
@@ -233,6 +288,16 @@
             "Strength",
             "Horizontal Abduction",
             "Dumbbell"
+        ]
+    },
+    "PRONE ON ELBOWS": {
+        "img path": "assets/images/PRONE ON ELBOWS.jpg",
+        "instruction": "Lying face down, slowly prop yourself up with your elbows. Hold and lower youself back down. ",
+        "tags": [
+            "Back",
+            "Extension",
+            "AROM",
+            "Flexibility"
         ]
     },
     "PUTTY SQUEEZE": {
@@ -438,6 +503,30 @@
             "Adduction"
         ]
     },
+    "SWISS BALL HAMSTRING CURL": {
+        "img path": "assets/images/SWISS BALL HAMSTRING CURL.jpg",
+        "instruction": "Lie on your back with your feet on the swiss ball. Slowly bring your knees toward your chest, bringing the ball with you. Return to starting position and repeat.",
+        "tags": [
+            "Strength",
+            "Flexion",
+            "Abdominal",
+            "Hip",
+            "Flexibility",
+            "Ball",
+            "Knee"
+        ]
+    },
+    "SWISS BALL SQUATS": {
+        "img path": "assets/images/SWISS BALL SQUATS.jpg",
+        "instruction": "Stand with the swiss ball between your back and a wall. Slowly squat down and return to the starting position.",
+        "tags": [
+            "Strength",
+            "Flexion",
+            "Hip",
+            "Ball",
+            "Knee"
+        ]
+    },
     "TOWEL SCRUNCH": {
         "img path": "assets/images/TOWEL SCRUNCH.jpg",
         "instruction": "Place a towel on a table in front of you. Flex your fingers and pull the towel towards you.",
@@ -445,6 +534,16 @@
             "Hand",
             "Strength",
             "Flexion"
+        ]
+    },
+    "UPPER TRAP STRETCH": {
+        "img path": "assets/images/UPPER TRAP STRETCH.jpg",
+        "instruction": "With one hand behind your back, slowly bring your head towards the other shoulder and hold.",
+        "tags": [
+            "Neck",
+            "Flexibility",
+            "Lateral Flexion",
+            "PROM"
         ]
     },
     "WAND FLEXION": {
