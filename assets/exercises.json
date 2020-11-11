@@ -43,6 +43,16 @@
             "Extension"
         ]
     },
+    "CAT COW": {
+        "img path": "assets/images/CAT COW.jpg",
+        "instruction": "Start in a quadruped stance with your hands and knees on the floor. Slowly arch your back and lift your head. Then slowly round your back towards the celing and bring your head towards your chest.",
+        "tags": [
+            "Extension",
+            "Flexion",
+            "Back",
+            "AROM"
+        ]
+    },
     "CERVICAL EXTENSION": {
         "img path": "assets/images/CERVICAL EXTENSION.jpg",
         "instruction": "Tilt your head upwards and then return to starting position.",
@@ -87,6 +97,15 @@
             "AROM"
         ]
     },
+    "CHILDS POSE": {
+        "img path": "assets/images/CHILDS POSE.jpg",
+        "instruction": "In a kneeling position with outstretched arms, sit back on heels until a stretch is felt.",
+        "tags": [
+            "PROM",
+            "Flexion",
+            "Back"
+        ]
+    },
     "DEAD BUGS": {
         "img path": "assets/images/DEAD BUGS.jpg",
         "instruction": "Lie on your back with your arms pointing towards the ceiling and your hips and knees bent. Slowly straighten out one of your legs while bringing the opposite arm overhead. Return to starting position before repeating on the other side.",
@@ -94,6 +113,24 @@
             "Strength",
             "Back",
             "Abdominal"
+        ]
+    },
+    "DOORWAY PEC STRETCH": {
+        "img path": "assets/images/DOORWAY PEC STRETCH.jpg",
+        "instruction": "Standing in a doorway and place your arms up on the door jam. Place one foot through the doorway and slightly lunge forward until you feel a stretch.",
+        "tags": [
+            "Shoulder",
+            "Flexibility",
+            "PROM"
+        ]
+    },
+    "DOUBLE KNEE TO CHEST STRETCH": {
+        "img path": "assets/images/DOUBLE KNEE TO CHEST STRETCH.jpg",
+        "instruction": "Lying on your back. Hug both knees toward your chest until you feel a stretch.",
+        "tags": [
+            "PROM",
+            "Flexion",
+            "Back"
         ]
     },
     "ELASTIC BAND: DORSIFLEXION": {
@@ -203,6 +240,46 @@
             "Flexion"
         ]
     },
+    "ISOMETRIC SHOULDER EXTENSION": {
+        "img path": "assets/images/ISOMETRIC SHOULDER EXTENSION.jpg",
+        "instruction": "Stand with your shoulder bent and the back of your elbow against a wall. Push the back of your elbow straight into the wall.",
+        "tags": [
+            "Isometric",
+            "Extension",
+            "Shoulder",
+            "Strength"
+        ]
+    },
+    "ISOMETRIC SHOULDER EXTERNAL ROTATION": {
+        "img path": "assets/images/ISOMETRIC SHOULDER EXTERNAL ROTATION.jpg",
+        "instruction": "Stand with your elbow bent and hand placed against a wall. Slowly push your hand into the wall.",
+        "tags": [
+            "Isometric",
+            "Shoulder",
+            "Strength",
+            "External Rotation"
+        ]
+    },
+    "ISOMETRIC SHOULDER FLEXION": {
+        "img path": "assets/images/ISOMETRIC SHOULDER FLEXION.jpg",
+        "instruction": "Stand with your elbow bent and fist against the wall. Push your first directly into the wall.",
+        "tags": [
+            "Isometric",
+            "Shoulder",
+            "Strength",
+            "Flexion"
+        ]
+    },
+    "KNEELING HIP FLEXOR STETCH": {
+        "img path": "assets/images/KNEELING HIP FLEXOR STETCH.jpg",
+        "instruction": "Kneeling on the floor with the unaffected leg in front. Keeping your chest up, slowly shift your weight forward until you feel a stretch and hold.",
+        "tags": [
+            "Hip",
+            "Flexibility",
+            "PROM",
+            "Flexion"
+        ]
+    },
     "LEVATOR SCAP STRETCH": {
         "img path": "assets/images/LEVATOR SCAP STRETCH.jpg",
         "instruction": "With the arm of the affect side behind your back, bring your head towards the opposite side armpit and hold.",
@@ -220,6 +297,14 @@
             "Knee",
             "Strength",
             "Extension"
+        ]
+    },
+    "LOWER TRUNK ROTATIONS": {
+        "img path": "assets/images/LOWER TRUNK ROTATIONS.jpg",
+        "instruction": "Lie on your back with your knees bent. Slowly bring both knees to one side. Go back to the starting position and repeat on the other side.",
+        "tags": [
+            "Back",
+            "AROM"
         ]
     },
     "MARBLE PICK-UP": {
@@ -250,6 +335,25 @@
             "Strength",
             "Extension",
             "Flexion"
+        ]
+    },
+    "PIRIFORMIS STRETCH - SITTING": {
+        "img path": "assets/images/PIRIFORMIS STRETCH  SITTING.jpg",
+        "instruction": "Sit in a chair with chest up and affected leg crossed over the other. Keeping your back straight, hinge your hips to feel a stretch and hold.",
+        "tags": [
+            "Hip",
+            "PROM",
+            "External Rotation"
+        ]
+    },
+    "PIRIFORMIS STRETCH - SUPINE": {
+        "img path": "assets/images/PIRIFORMIS STRETCH  SUPINE.jpg",
+        "instruction": "Lying on your back with your knees bent, cross your affected leg over the other form a figure four shape. Grab under your unaffected knee and pull it to your chest. Hold for a stretch and release.",
+        "tags": [
+            "Hip",
+            "Flexibility",
+            "PROM",
+            "External Rotation"
         ]
     },
     "PRAYER STRETCH": {
@@ -321,13 +425,23 @@
             "Extension"
         ]
     },
-    "SCAPULAR PUNCHES": {
-        "img path": "assets/images/SCAPULAR PUNCHES.jpg",
-        "instruction": "Lie on your back with your arm extended towards the ceiling. Keep your elbow straight and protract your shoulder forward towards the ceiling.",
+    "QUADRICEP STRETCH STANDING": {
+        "img path": "assets/images/QUADRICEP STRETCH STANDING.jpg",
+        "instruction": "Using a stationary object for support, bend your knee behind you. Grab your ankle and hold.",
         "tags": [
-            "Shoulder",
-            "Strength",
-            "Dumbbell"
+            "Hip",
+            "Extension",
+            "PROM",
+            "Flexion"
+        ]
+    },
+    "QUADRUPED THORACIC STRETCH": {
+        "img path": "assets/images/QUADRUPED THORACIC STRETCH.jpg",
+        "instruction": "Start in a quadruped stance with your hands and knees on the floor. Place one arm behind your head and rotate your back until you feel a stretch.",
+        "tags": [
+            "Flexibility",
+            "Back",
+            "AROM"
         ]
     },
     "SCAPULAR SQUEEZES": {
@@ -347,6 +461,15 @@
             "Flexion"
         ]
     },
+    "SERRATUS PUNCHES": {
+        "img path": "assets/images/SCAPULAR PUNCHES.jpg",
+        "instruction": "Lie on your back with your arm extended towards the ceiling. Keep your elbow straight and protract your shoulder forward towards the ceiling.",
+        "tags": [
+            "Dumbbell",
+            "Shoulder",
+            "Strength"
+        ]
+    },
     "SHORT ARC QUAD": {
         "img path": "assets/images/SHORT ARC QUAD.jpg",
         "instruction": "Place a rolled up towel under your knee and straighten your leg.",
@@ -356,12 +479,73 @@
             "Flexion"
         ]
     },
+    "SHOULDER BALL CIRCLES ON WALL": {
+        "img path": "assets/images/SHOULDER BALL CIRCLES ON WALL.jpg",
+        "instruction": "With your shoulder at 90 degrees, place a ball between your hand the wall. Slowly roll the ball in a circular motion",
+        "tags": [
+            "Shoulder",
+            "Flexion",
+            "Ball",
+            "AROM"
+        ]
+    },
+    "SHOULDER INTERNAL ROTATION WITH TOWEL": {
+        "img path": "assets/images/SHOULDER INTERNAL ROTATION WITH TOWEL.jpg",
+        "instruction": "In standing position with a towel behind your back, bring your unaffected arm toward the ceiling until you feel a stretch.",
+        "tags": [
+            "Shoulder",
+            "Flexibility",
+            "PROM",
+            "Internal Rotation"
+        ]
+    },
+    "SHOULDER PENDULUMS": {
+        "img path": "assets/images/SHOULDER PENDULUMS.jpg",
+        "instruction": "While using a stable object for support, tilt your upper body towards a 90 degree angle. Use your body to shift your weight in a circular motion. Your arm should be fully relaxed, with your body creating the momentum for your shoulder to swing.",
+        "tags": [
+            "Shoulder",
+            "AROM"
+        ]
+    },
     "SHOULDER ROLLS": {
         "img path": "assets/images/SHOULDER ROLLS.jpg",
         "instruction": "While sitting straight, move your shoulders in a circular pattern going up, back, and down.",
         "tags": [
             "Shoulder",
             "AROM"
+        ]
+    },
+    "SHOULDER WAND ABDUCTION": {
+        "img path": "assets/images/SHOULDER WAND ABDUCTION.jpg",
+        "instruction": "While holding a wand palm up on the affected side and palm down on the other side, slowly raise up your injured arm to the side.",
+        "tags": [
+            "Shoulder",
+            "Flexibility",
+            "PROM",
+            "Wand",
+            "Abduction"
+        ]
+    },
+    "SHOULDER WAND EXTENSION": {
+        "img path": "assets/images/SHOULDER WAND EXTENSION.jpg",
+        "instruction": "Stand straight with a wand behind your back. Extend your shoulders and bring the wand away from your back.",
+        "tags": [
+            "Extension",
+            "Shoulder",
+            "Flexibility",
+            "PROM",
+            "Wand"
+        ]
+    },
+    "SHOULDER WAND EXTERNAL ROTATION": {
+        "img path": "assets/images/SHOULDER WAND EXTERNAL ROTATION.jpg",
+        "instruction": "Lie on a table holding a wand with your elbows bent. Use your unaffected arm to push the wand towards your affected arm. Keep the affected arm's elbow tucked in your side.",
+        "tags": [
+            "Shoulder",
+            "Flexibility",
+            "PROM",
+            "Wand",
+            "External Rotation"
         ]
     },
     "SIDELYING CLAMSHELLS": {
@@ -400,12 +584,41 @@
             "Adduction"
         ]
     },
+    "SIDELYING THORACIC STRETCH": {
+        "img path": "assets/images/SIDELYING THORACIC STRETCH.jpg",
+        "instruction": "Lie on your side with your knees bent and both hands straight out in front of you. Slowly rotate and bring your top arm back until you feel a stretch.",
+        "tags": [
+            "Flexibility",
+            "Back",
+            "AROM"
+        ]
+    },
+    "SINGLE KNEE TO CHEST STRETCH": {
+        "img path": "assets/images/SINGLE KNEE TO CHEST STRETCH.jpg",
+        "instruction": "Lying on your back, bring one knee toward your chest until you feel a stretch.",
+        "tags": [
+            "Flexibility",
+            "Flexion",
+            "Back",
+            "AROM"
+        ]
+    },
     "SINGLE LEG STANCE": {
         "img path": "assets/images/SINGLE LEG STANCE.jpg",
         "instruction": "Stand on one leg and maintain your balance.",
         "tags": [
             "Ankle",
             "Balance"
+        ]
+    },
+    "SLEEPER STRETCH": {
+        "img path": "assets/images/SLEEPER STRETCH.jpg",
+        "instruction": "Start by lying on your side with the affected arm on the bottom. Use your unaffected arm to gently bring your affected forearm towards the table.",
+        "tags": [
+            "Shoulder",
+            "Flexibility",
+            "PROM",
+            "Internal Rotation"
         ]
     },
     "SQUATS": {
@@ -484,6 +697,17 @@
             "Flexion"
         ]
     },
+    "SUPINE HAMSTRING STRETCH": {
+        "img path": "assets/images/SUPINE HAMSTRING STRETCH.jpg",
+        "instruction": "Lie on your back with a towel or belt around your foot. Keeping your knee straight, slowly bring your foot towards your head until you feel a stretch.",
+        "tags": [
+            "Hip",
+            "Extension",
+            "Flexibility",
+            "PROM",
+            "Knee"
+        ]
+    },
     "SUPINE HIP ABDUCTION": {
         "img path": "assets/images/SUPINE HIP ABDUCTION.jpg",
         "instruction": "Lie on your back with knees bent, and place an elastic band around your knees. Keeping your feet on the ground, bring your knees outward.",
@@ -501,6 +725,17 @@
             "Hip",
             "Strength",
             "Adduction"
+        ]
+    },
+    "SUPINE SHOULDER WAND FLEXION": {
+        "img path": "assets/images/SUPINE SHOULDER WAND FLEXION.jpg",
+        "instruction": "Lying on your back with a wand at your hips. Slowly raise the wand towards the top of your head.",
+        "tags": [
+            "Shoulder",
+            "Flexibility",
+            "PROM",
+            "Wand",
+            "Flexion"
         ]
     },
     "SWISS BALL HAMSTRING CURL": {
@@ -525,6 +760,15 @@
             "Hip",
             "Ball",
             "Knee"
+        ]
+    },
+    "TOE TOWEL CRUNCH": {
+        "img path": "assets/images/TOE TOWEL CRUNCH.jpg",
+        "instruction": "With your foot on top of a towel. Curl your toes to try to scrunch the towel. Relax and repeat.",
+        "tags": [
+            "Strength",
+            "Foot",
+            "Flexion"
         ]
     },
     "TOWEL SCRUNCH": {
